@@ -1,0 +1,286 @@
+
+<section class="section-style">
+
+  <a id="pageTop"></a>
+
+  <a class="hamburger hamburger-style" ng-click="hamburger()"></a>
+
+  <header class="wrapper clearfix">
+
+    <h1 class="pull-left">Live Style Guide</h1>
+
+  </header>
+
+  <nav>
+
+    <div class="wrapper">
+
+      <h2>Style</h2>
+
+      <ul>
+        <li><a ng-click="jumpTo('typography')">Typography</a></li>
+        <li><a ng-click="jumpTo('colors')">Colors</a></li>
+        <li><a ng-click="jumpTo('buttons')">Buttons</a></li>
+        <li><a ng-click="jumpTo('hotspots')">Hotspots</a></li>
+        <li><a ng-click="jumpTo('cards')">Cards</a></li>
+        <li><a ng-click="jumpTo('navigation')">Navigation</a></li>
+        <li><a ng-click="jumpTo('icons')">Icons</a></li>
+        <li><a ng-click="jumpTo('modals')">Roll-Up Windows</a></li>
+        <li><a ng-click="jumpTo('filters')">Filters</a></li>
+      </ul>
+
+    </div>
+
+  </nav>
+
+  <div class="wrapper">
+
+    <a id="typography"></a>
+    <div class="partition">
+
+      <h2>Typography <button type="button" class="btn btn-default" ng-click="jumpTo('pageTop')">Back To Top</button></h2>
+
+      <p><strong>16px/rems</strong>, <strong>Open Sans</strong> typeface, <strong>400, 300</strong> font weights.</p>
+
+      <br>
+
+      <p class="p14">14px: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+      <p class="p16">16px: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+      <p class="p18">18px: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+      <p class="p24">24px: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+      <p class="p28">28px: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+      <p class="p32">32px: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+    </div>
+
+    <a id="colors"></a>
+    <div class="partition">
+
+      <h2>Colors <button type="button" class="btn btn-default" ng-click="jumpTo('pageTop')">Back To Top</button></h2>
+
+      <table class="colors">
+        <tr>
+          <th class="col-md-3 col-sm-3 col-xs-3">Hotspot text</th>
+          <th class="col-md-3 col-sm-3 col-xs-3">Hotspot background</th>
+          <th class="col-md-3 col-sm-3 col-xs-3">Grey background</th>
+          <th class="col-md-3 col-sm-3 col-xs-3">Grey border</th>
+        <tr>
+          <td class="hotText">&nbsp;</td>
+          <td class="hotBg">&nbsp;</td>
+          <td class="greyBg">&nbsp;</td>
+          <td class="greyBorder">&nbsp;</td>
+        </tr>
+      </table>
+
+    </div>
+
+    <a id="buttons"></a>
+    <div class="partition">
+
+      <h2>Buttons <button type="button" class="btn btn-default" ng-click="jumpTo('pageTop')">Back To Top</button></h2>
+
+      <table>
+        <tr>
+          <td class="col-md-3 col-sm-3 col-xs-3">Default</td>
+          <td class="col-md-9 col-sm-9 col-xs-9">
+            <button type="button" class="btn btn-default">Button</button>
+            <button type="button" class="btn btn-default arrow-right">Button</button>
+          </td>
+        </tr>
+        <tr>
+          <td class="dark col-md-3 col-sm-3 col-xs-3">White</td>
+          <td class="dark col-md-9 col-sm-9 col-xs-9">
+            <button type="button" class="btn btn-default btn-white">Button</button>
+            <button type="button" class="btn btn-default btn-white arrow-right">Button</button>
+          </td>
+        </tr>
+        <tr>
+          <td class="col-md-3 col-sm-3 col-xs-3">Flat</td>
+          <td class="col-md-9 col-sm-9 col-xs-9">
+            <button type="button" class="btn btn-flat">Button</button>
+            <button type="button" class="btn btn-flat arrow-right">Button</button>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+
+    <a id="hotspots"></a>
+    <div class="partition">
+
+      <h2>Hotspots <button type="button" class="btn btn-default" ng-click="jumpTo('pageTop')">Back To Top</button></h2>
+
+      <p>Hotspots are a graphical treatment to a piece of data. Hotspots highlights, with a graphical treatment, areas to focus in the context of other data. Context is crucial. Hotspots are not "hot" if they don't have a relationship to what is "cool."</p>
+
+    </div>
+
+    <a id="cards"></a>
+    <div class="partition">
+      <h2>Cards <button type="button" class="btn btn-default" ng-click="jumpTo('pageTop')">Back To Top</button></h2>
+
+      <p>Cards are an alternative to Grid views that help organize data for ease of prioritization.</p>
+
+      <table>
+        <tr>
+          <td>
+
+            <div id="tile-00" class="tiles">
+
+                    <a>
+
+                        <div class="fold-zone" ng-click="fold()"></div>
+
+                        <div class="tile-inner" style="display: block; width: 336px height: 279px;">
+                            
+                            <img src="bootflat/img/hotspot-folded.png" class="folded">
+                            <img src="bootflat/img/base-layer.png" class="base">
+                            <img src="bootflat/img/hotspot-unfolded.png" class="unfolded">
+
+                            <div class="tile-content">
+                      
+                                <h2>Betsy Johnson</h2>
+
+                                <div class="dl-group">
+                                    <dl>
+                                        <dt>Primary Physician</dt>
+                                        <dd>Dr. Laura M. Pearlman</dd> 
+                                    </dl>
+                                </div>
+
+                                <div class="dl-group dl-group-full">
+                                    <dl class="col-1">
+                                        <dt>Diagnoses</dt>
+                                        <dd>
+                                          <div>
+                                              COPD
+                                          </div>
+                                        </dd> 
+                                    </dl>
+
+                                    <dl class="col-2">
+                                        <dt>Age</dt>
+                                        <dd>74</dd> 
+                                    </dl>
+
+                                    <dl class="col-3">
+                                        <dt>Gender</dt>
+                                        <dd>Female</dd> 
+                                    </dl>
+                                </div>
+
+                                <div class="well">
+                                    <p>
+                                        <strong>Outreach</strong>
+                                        <br>
+                                        Tomorrow
+                                    </p>
+                                </div>  
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <a id="navigation"></a>
+    <div class="partition">
+
+      <h2>Navigation <button type="button" class="btn btn-default" ng-click="jumpTo('pageTop')">Back To Top</button></h2>
+
+      <p><strong>Hamburger Menu</strong><br>
+      The Hamburger Menu or Off-Screen Menu maximizes screen real estate by obfuscating navigation elements.</p>
+
+    </div>
+
+    <a id="icons"></a>
+    <div class="partition">
+      <h2>Icons <button type="button" class="btn btn-default" ng-click="jumpTo('pageTop')">Back To Top</button></h2>
+
+      <table class="icons">
+        <tr>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-history.png" width="30" height="30" title="Patient History"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-conditions.png" width="28" height="28" title="Condtions & Diagnoses"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-goals.png" width="30" height="36" title="Goals & Playlists"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-vitals.png" width="28" height="35" title="Vitals & Labs"></td>
+        </tr>
+        <tr>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-assessments.png" width="30" height="30" title="Assessments"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-procedures.png" width="34" height="27" title="Procedures & Immunizations"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-docs.png" width="26" height="36" title="Docs"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-meds.png" width="36" height="36" title="Meds & Allergies"></td>
+        </tr>
+        <tr>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/portrait-female.png" width="34" height="34" title="Phone"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/portrait-female-non-hotspot.png" width="34" height="34" title="Filter"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/portrait-male.png" width="34" height="34" title="Sort"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/portrait-male-non-hotspot.png" width="34" height="34" title="Views"></td>
+        </tr>
+        <tr>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-phone.png" width="17" height="14" title="Phone"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-filter.png" width="14" height="13" title="Filter"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-sort.png" width="13" height="13" title="Sort"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-views.png" width="13" height="13" title="Views"></td>
+        </tr>
+        <tr>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-portrait.png" width="36" height="36" title="Profile"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-tasks.png" width="25" height="28" title="Tasks"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-messages.png" width="33" height="28" title="Messages"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-encounter.png" width="28" height="28" title="Encounters"></td>
+        </tr>
+        <tr>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-active.png" width="22" height="22" title="Active"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-inactive.png" width="22" height="22" title="Inactive"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-not-reviewed.png" width="22" height="22" title="Not Reviewed"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-stopwatch.png" width="21" height="23" title="Stopwatch"></td>
+        </tr>
+        <tr>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/folder-tasks.png" width="8" height="11" title="Folder"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-alert.png" width="16" height="16" title="Alert"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-close.png" width="24" height="24" title="Close"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-info.png" width="30" height="30" title="Info"></td>
+        </tr>
+        <tr>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-search-grey.png" width="15" height="15" title="Search"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-down-arrow.png" width="36" height="36" title="Active"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-star.png" width="16" height="16" title="Star"></td>
+          <td class="col-md-3 col-sm-3 col-xs-3"><img src="bootflat/img/icon-calendar.png" width="13" height="13" title="Info"></td>
+        </tr>
+      </table>
+    </div>
+
+    <a id="modals"></a>
+    <div class="partition">
+      <h2>Roll-Up Windows <button type="button" class="btn btn-default" ng-click="jumpTo('pageTop')">Back To Top</button></h2>
+
+      <p>Roll-up windows take their cue from Modal windows which helps users focus on the presented content. They also perform well across a myriad of device sizes.</p>
+
+      <button type="button" class="btn btn-default" data-template="app/partials/panels/style-modal-right.html" bs-aside="aside" data-container=".page-wrapper">Open Right Window</button>
+      <button type="button" class="btn btn-default" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/style-modal-bottom.html" bs-aside="aside" data-container=".page-wrapper">Open Bottom Window</button>
+
+    </div>
+
+    <a id="filters"></a>
+    <div class="partition no-border">
+      <h2>Filters <button type="button" class="btn btn-default" ng-click="jumpTo('pageTop')">Back To Top</button></h2>
+
+      <p>Taking a cue from mobile and touch UX patterns, this filter slide-out simplifies a complex interaction.</p>
+
+      <button type="button" class="btn btn-default" data-template="app/partials/panels/filter.html" bs-aside="aside" data-container=".page-wrapper">Open Filter</button>
+
+    </div>
+
+  </div>
+
+</section>

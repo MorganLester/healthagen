@@ -1,0 +1,438 @@
+<header class="section-header section-header-full">
+
+    <div class="clearfix">
+
+        <h1 class="pull-left">{{ today.length + tomorrow.length + days.length + week.length }} Tasks</h1>
+
+        <div class="pull-right">
+            <div class="btn-group btn-100">
+                <a class="btn btn-default" disabled="disabled">List</a>
+                <a href="#/tasks-playlists" class="btn btn-primary">Playlists</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div data-ng-include="'app/partials/search-box.html'"></div>
+
+</header>
+
+
+<section class="section-tasks section-content-left">
+
+    <div class="clearfix">
+
+        <div class="article-panel col-md-9 col-sm-12 col-xs-12 pull-left">
+
+            <div class="article-wrapper">
+
+                <div ng-show="today.length > 0">
+
+                    <div class="task-header clearfix">
+
+                        <div class="pull-left">
+                            <div class="checkbox-hide">
+                                <input id="today-00" type="checkbox" ng-model="selectedToday" ng-change="checkAllToday()">  
+                                <label class="checklist-label" for="today-00"></label>
+                            </div>   
+
+                            <h2>
+                                <label for="today-00">
+                                    Today's Tasks
+                                </label>
+                            </h2>
+                        </div>
+
+                        <div class="pull-right animate-if" ng-if="snoozeButtons">
+                            <div>
+                                <a class="btn btn-default arrow-right" data-template="app/partials/panels/snooze.html" bs-aside="aside" data-container=".page-wrapper">Snooze</a>
+                                <a class="btn btn-default">Reassign</a>
+                                <a class="btn btn-default" ng-click="archive()">Mark as Complete</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul>
+
+                        <li id="{{ patient.id }}" ng-class="{ 'hotspot' : patient.hotspot === true }" class="article-li clearfix" ng-repeat="patient in today = (patients | filter:{tasks.time: 'Today'}) | filter:{physician:getDoctor} | filter:search">
+
+                            <header class="pull-left clearfix">
+
+                                <div class="dl-group dl-group-full clearfix">
+
+                                    <div class="checkbox-hide" ng-class="{ 'hotspot' : patient.hotspot === true }">
+                                        <input id="{{ 'today-' + $index }}" type="checkbox" value="{{ patient.id }}" ng-model="patient.checked" ng-click="checkSelected()">
+                                        <label class="checklist-label" for="{{ 'today-' + $index }}"></label>
+                                    </div>
+
+                                    <h3>
+                                        <a ng-class="{ 'hotspot' : patient.hotspot === true }" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-all-patients.html" bs-aside="aside" data-container=".page-wrapper">
+                                        {{ patient.tasks.type }} <small>{{ patient.name | displayName | characters:65 }}</small>
+                                        </a>
+                                    </h3>
+
+                                    <dl class="col-1">
+                                        <dt>Time</dt>
+                                        <dd>{{ patient.tasks.time }}</dd>
+                                    </dl>
+
+                                    <dl class="col-2">
+                                        <dt>Status</dt>
+                                        <dd>{{ patient.tasks.status }}</dd>
+                                    </dl>
+
+                                    <dl class="col-3">
+                                        <dt>Primary Physician</dt>
+                                        <dd>Dr. {{ patient.physician | doctorName | characters:30 }}</dd>
+                                    </dl>
+
+                                </div>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu erat eu neque porttitor ultrices....</p>
+
+                            </header>
+
+                            <footer class="pull-right">
+
+                                <div class="dl-group clearfix">
+                                    <dl class="pull-left">
+                                        <dt>Playlist</dt>
+                                        <dd>{{ patient.playlist.title }}</dd> 
+                                    </dl>
+                                </div>
+
+                                <button type="button" class="btn btn-flat pull-left" ng-show="patient.playlist.stepPosition">
+                                    <ng-pluralize count="patient.playlist.stepPosition"
+                                         when="{'0': 'None',
+                                             '1': '1st Step',
+                                             '2': '2nd Step',
+                                             '3': '3rd Step',
+                                             'other': '{}th Step'}">
+                                    </ng-pluralize>
+                                </button>
+                                
+                                <div class="btn-group pull-right" ng-show="patient.playlist.stepPosition">
+                                  <button type="button" class="btn btn-default arrow-right">Start</button> 
+                                </div>
+
+                            </footer>
+                        </li>
+                    </ul>
+                </div>
+
+                <div ng-show="tomorrow.length > 0">
+
+                    <div class="task-header clearfix">
+                        <div class="pull-left">
+                            <div class="checkbox-hide">
+                                <input id="tomorrow-00" type="checkbox" ng-model="selectedTomorrow" ng-change="checkAllTomorrow()">
+                                <label class="checklist-label" for="tomorrow-00"></label>
+                            </div>   
+
+                            <h2>
+                                <label for="tomorrow-00">
+                                    Tomorrow's Tasks
+                                </label>
+                            </h2>
+                        </div>
+
+                        <div class="pull-right animate-if" ng-if="snoozeButtons">
+                            <a class="btn btn-default arrow-right" data-template="app/partials/panels/snooze.html" bs-aside="aside" data-container=".page-wrapper">Snooze</a>
+                            <a class="btn btn-default">Reassign</a>
+                            <a class="btn btn-default" ng-click="archive()">Mark as Complete</a>
+                        </div>
+                    </div>
+
+                    <ul>
+
+                        <li ng-class="{ 'hotspot' : task.hotspot === true }" class="article-li clearfix" ng-repeat="patient in tomorrow = (patients | filter:{tasks.time: 'Tomorrow'}) | filter:{physician:getDoctor} | filter:search">
+
+                            <header class="pull-left clearfix">
+
+                                <div class="dl-group dl-group-full clearfix">
+
+                                    <div class="checkbox-hide" ng-class="{ 'hotspot' : patient.hotspot === true }">
+                                        <input id="{{ 'tomorrow-' + $index }}" type="checkbox" ng-model="patient.checked" value="{{ patient.id }}">
+                                        <label class="checklist-label" for="{{ 'tomorrow-' + $index }}"></label>
+                                    </div>
+
+                                    <h3>
+                                        <a ng-class="{ 'hotspot' : patient.hotspot === true }" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-all-patients.html" bs-aside="aside" data-container=".page-wrapper">
+                                        {{ patient.tasks.type }} <small>{{ patient.name | displayName | characters:65 }}</small>
+                                        </a>
+                                    </h3>
+
+                                    <dl class="col-1">
+                                        <dt>Time</dt>
+                                        <dd>{{ patient.tasks.time }}</dd>
+                                    </dl>
+
+                                    <dl class="col-2">
+                                        <dt>Status</dt>
+                                        <dd>{{ patient.tasks.status }}</dd>
+                                    </dl>
+
+                                    <dl class="col-3">
+                                        <dt>Primary Physician</dt>
+                                        <dd>Dr. {{ patient.physician | doctorName | characters:30 }}</dd>
+                                    </dl>
+
+                                </div>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu erat eu neque porttitor ultrices....</p>
+
+                            </header>
+
+                            <footer class="pull-right">
+
+                                <div class="dl-group clearfix">
+                                    <dl class="pull-left">
+                                        <dt>Playlist</dt>
+                                        <dd>{{ patient.playlist.title }}</dd> 
+                                    </dl>
+                                </div>
+
+                                <button type="button" class="btn btn-flat pull-left" ng-show="patient.playlist.stepPosition">
+                                    <ng-pluralize count="patient.playlist.stepPosition"
+                                         when="{'0': 'None',
+                                             '1': '1st Step',
+                                             '2': '2nd Step',
+                                             '3': '3rd Step',
+                                             'other': '{}th Step'}">
+                                    </ng-pluralize>
+                                </button>
+                                
+                                <div class="btn-group pull-right" ng-show="patient.playlist.stepPosition">
+                                  <button type="button" class="btn btn-default arrow-right">Start</button> 
+                                </div>
+
+                            </footer>
+                        </li>
+                    </ul>
+                </div>
+
+                <div ng-show="days.length > 0">
+
+                    <div class="task-header clearfix">
+                        <div class="pull-left">
+                            <div class="checkbox-hide">
+                                <input id="days-00" type="checkbox" ng-model="selectedTwo" ng-change="checkAllTwo()">
+                                <label class="checklist-label" for="days-00"></label>
+                            </div>   
+
+                            <h2>
+                                <label for="days-00">
+                                    2 Days From Now
+                                </label>
+                            </h2>
+                        </div>
+
+                        <div class="pull-right animate-if" ng-if="snoozeButtons">
+                            <a class="btn btn-default arrow-right" data-template="app/partials/panels/snooze.html" bs-aside="aside" data-container=".page-wrapper">Snooze</a>
+                            <a class="btn btn-default">Reassign</a>
+                            <a class="btn btn-default" ng-click="archive()">Mark as Complete</a>
+                        </div>
+                    </div>
+
+                    <ul>
+
+                        <li ng-class="{ 'hotspot' : task.hotspot === true }" class="article-li clearfix" ng-repeat="patient in days = (patients | filter:{tasks.time: '2 Days from now'}) | filter:{physician:getDoctor} | filter:search">
+
+                            <header class="pull-left clearfix">
+
+                                <div class="dl-group dl-group-full clearfix">
+
+                                    <div class="checkbox-hide" ng-class="{ 'hotspot' : patient.hotspot === true }">
+                                        <input id="{{ 'two-' + $index }}" type="checkbox" ng-model="patient.checked" value="{{ patient.id }}">
+                                        <label class="checklist-label" for="{{ 'two-' + $index }}"></label>
+                                    </div>
+
+                                    <h3>
+                                        <a ng-class="{ 'hotspot' : patient.hotspot === true }" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-all-patients.html" bs-aside="aside" data-container=".page-wrapper">
+                                        {{ patient.tasks.type }} <small>{{ patient.name | displayName | characters:65 }}</small>
+                                        </a>
+                                    </h3>
+
+                                    <dl class="col-1">
+                                        <dt>Time</dt>
+                                        <dd>2 Days</dd>
+                                    </dl>
+
+                                    <dl class="col-2">
+                                        <dt>Status</dt>
+                                        <dd>{{ patient.tasks.status }}</dd>
+                                    </dl>
+
+                                    <dl class="col-3">
+                                        <dt>Primary Physician</dt>
+                                        <dd>Dr. {{ patient.physician | doctorName | characters:30 }}</dd>
+                                    </dl>
+
+                                </div>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu erat eu neque porttitor ultrices....</p>
+
+                            </header>
+
+                            <footer class="pull-right">
+
+                                <div class="dl-group clearfix">
+                                    <dl class="pull-left">
+                                        <dt>Playlist</dt>
+                                        <dd>{{ patient.playlist.title }}</dd> 
+                                    </dl>
+                                </div>
+
+                                <button type="button" class="btn btn-flat pull-left" ng-show="patient.playlist.stepPosition">
+                                    <ng-pluralize count="patient.playlist.stepPosition"
+                                         when="{'0': 'None',
+                                             '1': '1st Step',
+                                             '2': '2nd Step',
+                                             '3': '3rd Step',
+                                             'other': '{}th Step'}">
+                                    </ng-pluralize>
+                                </button>
+                                
+                                <div class="btn-group pull-right" ng-show="patient.playlist.stepPosition">
+                                  <button type="button" class="btn btn-default arrow-right">Start</button> 
+                                </div>
+
+                            </footer>
+                        </li>
+                    </ul>
+                </div>
+
+                <div ng-show="week.length > 0">
+
+                    <div class="task-header clearfix">
+                        <div class="pull-left">
+                            <div class="checkbox-hide">
+                                <input id="week-00" type="checkbox" ng-model="selectedWeek" ng-change="checkAllWeek()">
+                                <label class="checklist-label" for="week-00"></label>
+                            </div>   
+
+                            <h2>
+                                <label for="week-00">
+                                    Next Week
+                                </label>
+                            </h2>
+                        </div>
+
+                        <div class="pull-right animate-if" ng-if="snoozeButtons">
+                            <a class="btn btn-default arrow-right" data-template="app/partials/panels/snooze.html" bs-aside="aside" data-container=".page-wrapper">Snooze</a>
+                            <a class="btn btn-default">Reassign</a>
+                            <a class="btn btn-default" ng-click="archive()">Mark as Complete</a>
+                        </div>
+                    </div>
+
+                    <ul>
+
+                        <li ng-class="{ 'hotspot' : task.hotspot === true }" class="article-li clearfix" ng-repeat="patient in week = (patients | filter:{tasks.time: 'Next Week'}) | filter:{physician:getDoctor} | filter:search">
+
+                            <header class="pull-left clearfix">
+
+                                <div class="dl-group dl-group-full clearfix">
+
+                                    <div class="checkbox-hide" ng-class="{ 'hotspot' : patient.hotspot === true }">
+                                        <input id="{{ 'week-' + $index }}" type="checkbox" ng-model="patient.checked" value="{{ patient.id }}">
+                                        <label class="checklist-label" for="{{ 'week-' + $index }}"></label>
+                                    </div>
+
+                                    <h3>
+                                        <a ng-class="{ 'hotspot' : patient.hotspot === true }" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-all-patients.html" bs-aside="aside" data-container=".page-wrapper">
+                                        {{ patient.tasks.type }} <small>{{ patient.name | displayName | characters:65 }}</small>
+                                        </a>
+                                    </h3>
+
+                                    <dl class="col-1">
+                                        <dt>Time</dt>
+                                        <dd>{{ patient.tasks.time }}</dd>
+                                    </dl>
+
+                                    <dl class="col-2">
+                                        <dt>Status</dt>
+                                        <dd>{{ patient.tasks.status }}</dd>
+                                    </dl>
+
+                                    <dl class="col-3">
+                                        <dt>Primary Physician</dt>
+                                        <dd>Dr. {{ patient.physician | doctorName | characters:30 }}</dd>
+                                    </dl>
+
+                                </div>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu erat eu neque porttitor ultrices....</p>
+
+                            </header>
+
+                            <footer class="pull-right">
+
+                                <div class="dl-group clearfix">
+                                    <dl class="pull-left">
+                                        <dt>Playlist</dt>
+                                        <dd>{{ patient.playlist.title }}</dd> 
+                                    </dl>
+                                </div>
+
+                                <button type="button" class="btn btn-flat pull-left" ng-show="patient.playlist.stepPosition">
+                                    <ng-pluralize count="patient.playlist.stepPosition"
+                                         when="{'0': 'None',
+                                             '1': '1st Step',
+                                             '2': '2nd Step',
+                                             '3': '3rd Step',
+                                             'other': '{}th Step'}">
+                                    </ng-pluralize>
+                                </button>
+                                
+                                <div class="btn-group pull-right" ng-show="patient.playlist.stepPosition">
+                                  <button type="button" class="btn btn-default arrow-right">Start</button> 
+                                </div>
+
+                            </footer>
+                        </li>
+                    </ul>
+                </div>
+
+            </div><!-- // .article-wrapper -->
+        </div><!-- // .pull-left -->
+
+        <aside class="aside-tasks col-md-3 col-sm-12 col-xs-12 pull-right">
+
+            <div class="aside-inner">
+
+                <h3>Tasks Statistics</h3>
+
+                <div class="dl-group clearfix">
+                    <dl>
+                        <dt>Due Today</dt>
+                        <dd class="dl-large">{{ today.length }}</dd>
+                    </dl>
+                    <dl>
+                        <dt>This Week</dt>
+                        <dd class="dl-large">{{ today.length + tomorrow.length + days.length }}</dd>
+                    </dl>
+                </div>
+
+                <h5>Week's Top Task Type</h5>
+                <ul>
+                    <li ng-repeat="patient in patients | unique: 'playlist.title' | limitTo: 1">
+                        <a>{{ patient.playlist.title }}</a>
+                    </li>
+                </ul>
+
+
+                <h5>Week's Top Patient</h5>
+                <ul>
+                    <li ng-repeat="patient in patients | limitTo: 1" ng-show="patient.hotspot">
+                        <a data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-all-patients.html" bs-aside="aside" data-container=".page-wrapper">{{ patient.name | displayName }}</a>
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+
+    </div>
+    
+</section>
+
+

@@ -1,0 +1,56 @@
+    <header class="section-header section-header-full">
+
+        <div class="clearfix">
+
+            <h1 class="pull-left">{{ patients.length }} Patients</h1>
+
+            <div class="pull-right">
+                <div class="btn-group btn-100">
+                    <a class="btn btn-primary">Groups</a>
+                    <a class="btn btn-default" disabled="disabled">Patients</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div data-ng-include="'app/partials/search-box.html'"></div>
+
+    </header>
+
+
+    <section class="section-all-patients section-content clearfix">
+
+        <ul class="clearfix">
+
+                <li id="tile-patients-{{ $index }}" class="tiles" ng-repeat="patient in patients | filter:{physician:getDoctor} | filter:{gender:getGender}:exceptEmptyComparator | filter:{name:search}" load-dispatcher>
+
+                    <a>
+
+                        <div class="fold-zone" ng-click="foldPatients($index)"></div>
+
+                        <div class="tile-inner inner-div eq-height" ng-class="{ 'hotspot' : patient.hotspot == true }">
+                            
+                            <div ng-show="patient.hotspot == true">
+                                <!-- this can probably be done better -->
+                                <img src="bootflat/img/hotspot-folded-grey.png" class="folded">
+                                <img src="bootflat/img/base-layer-grey.png" class="base">
+                                <img src="bootflat/img/hotspot-unfolded-grey.png" class="unfolded">
+                            </div>
+
+                            <div class="tile-content" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-all-patients.html" bs-aside="aside" data-container=".page-wrapper">
+                      
+                                <h3>{{ patient.name.first }}<br>{{ patient.name.last }}</h3>
+
+                                <p>
+                                    {{ patient.age }}, {{ patient.gender }}<br>
+                                    {{ patient.city | characters:25 }}, {{ patient.state | uppercase }}
+                                </p>
+
+                        </div>
+
+                    </a>
+
+                </li>
+            </ul>
+
+    </section>

@@ -1,0 +1,503 @@
+
+.profile-card {
+
+  .profile-border {
+    position: relative;
+    padding: 1rem 3.4rem;
+    z-index: 100;
+    background: #fff;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(51,51,51,0.15), inset 0px -1px 0px 0px #CCCCCC;
+       -moz-box-shadow: 0px 1px 2px 0px rgba(51,51,51,0.15), inset 0px -1px 0px 0px #CCCCCC;
+            box-shadow: 0px 1px 2px 0px rgba(51,51,51,0.15), inset 0px -1px 0px 0px #CCCCCC;
+
+    .nav-tabs {
+      position: absolute;
+      top: 0.8rem;
+      right: 3.4rem;
+      z-index: 5;
+      background: transparent;
+
+      li {
+        margin-left: 1.2rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border: none;
+        
+        a {
+          opacity: 0.5;
+          text-indent: -9999px;
+          background-color: transparent;
+          -webkit-transition: all 0.2s ease-in-out;
+             -moz-transition: all 0.2s ease-in-out;
+               -o-transition: all 0.2s ease-in-out;
+              -ms-transition: all 0.2s ease-in-out;
+                  transition: all 0.2s ease-in-out;
+
+          &:hover { opacity: 1; }
+        }
+
+        &.active a {
+          opacity: 1;
+         
+        }
+
+        &:nth-child(1) a {
+          background: url(../img/icon-patient.png) no-repeat 50%;
+          background-size: 1.625rem;
+        }
+
+        &:nth-child(2) a {
+          background: url(../img/icon-tasks.png) no-repeat 50%;
+          background-size: 1.5rem 1.625rem;
+        }
+
+        &:nth-child(3) a {
+          background: url(../img/icon-messages.png) no-repeat 50%;
+          background-size: 1.9375rem 1.5625rem;
+        }
+
+        &:nth-child(4) a {
+          background: url(../img/icon-encounter.png) no-repeat 50%;
+          background-size: 1.625rem 1.5625rem;
+        }
+      }
+    }
+
+    header {
+
+      .dl-group-top { 
+        width: 75%;
+      }
+
+      h1 {
+        position: relative;
+        width: 44%;
+        display: inline-block;
+        font-size: 1.875rem;
+
+        &.hotspot {
+          color: $hotText;
+        }
+
+        &.male,
+        &.female { padding-left: 2.8rem; }
+
+        &.male:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: 2.125rem;
+          height: 2.125rem;
+          background: url(../img/portrait-male-non-hotspot.png) no-repeat;
+          background-size: 2.125rem;
+          -webkit-transform: translateY(-50%);
+             -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+                  transform: translateY(-50%);
+        }
+
+        &.hotspot.male:before {
+          background: url(../img/portrait-male.png) no-repeat;
+          background-size: 2.125rem;
+        }
+
+        &.female:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: 2.125rem;
+          height: 2.125rem;
+          background: url(../img/portrait-female-non-hotspot.png) no-repeat;
+          background-size: 2.125rem;
+          -webkit-transform: translateY(-50%);
+             -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+                  transform: translateY(-50%);
+        }
+
+        &.hotspot.female:before {
+          background: url(../img/portrait-female.png) no-repeat;
+          background-size: 2.125rem;
+        }
+      }
+
+      .top-info {
+        display: inline-block;
+      }
+
+      .phone {
+        margin-right: 3rem;
+        padding-left: 1.5rem;
+        display: inline-block;
+        color: $linkColor;
+        font-size: 1.125rem;
+        background: url(../img/icon-phone.png) no-repeat;
+        background-position: 0 50%;
+        background-size: 1rem 0.8125rem;
+      }
+
+      dl {
+        display: inline-block;
+        min-width: 4rem;
+
+        dt {
+          color: #aaa;
+          font-size: 0.75rem;
+          font-weight: 300;
+          text-transform: uppercase;
+        }
+
+        dd {
+          margin: 0;
+          color: #777;
+          font-size: 1.125rem;
+        }
+      }
+
+      @include responsive(tablet) {
+        width: 100%;
+
+        h1 {
+          width: 100%;
+        }
+
+        .top-info {
+          margin: 1.5rem 1rem 1rem;
+          display: block;
+        }
+
+        .dl-group-top {
+          width: 100%;
+
+          dl { margin-bottom: 0; }
+
+          dt, 
+          dd { display: inline; }
+        }
+      }
+
+      .profile-nav {
+        
+        li {
+          display: inline-block;
+          width: 2.5rem;
+
+          a {
+            opacity: 0.5;
+            padding: 0.4375rem;
+            display: block;
+
+            &:hover { opacity: 1; }
+          }
+
+          &.active a { opacity: 1; }
+        }
+      }
+    }
+    
+    .tab-content {
+      padding: 0;
+
+      .patient-tab-well {
+        padding: 1.8rem 1rem 0;
+        background: #FAFAFA;
+      }
+
+      h2 {
+        padding-bottom: 1rem;
+        font-size: 1.25rem;
+        border-bottom: 1px solid $borderGrey;
+
+        a {
+          margin-left: 0.5rem;
+          display: inline-block;
+          font-size: 1.125rem;
+        }
+
+        &.h2-messages {
+          margin: 0.5rem 0 0 0;
+          padding-bottom: 0;
+          color: #666;
+          font-size: 1.5rem;
+          font-weight: 300;
+          border-bottom: none;
+
+          strong {
+            font-weight: 400;
+          }
+
+          a:hover { 
+            color: #666; 
+            text-decoration: underline;
+          }
+
+          .btn { margin-right: 1.5rem; }
+        }
+      }
+
+      .message-pane {
+        padding: 0.5rem 1rem 0;
+        display: table;
+        width: 100%;
+
+        .left-triangle {
+          position: absolute;
+          top: 50%;
+          left: -1.5rem;
+          opacity: 0.5;
+          -webkit-transform: translateY(-50%) rotate(180deg);
+             -moz-transform: translateY(-50%) rotate(180deg);
+              -ms-transform: translateY(-50%) rotate(180deg);
+                  transform: translateY(-50%) rotate(180deg);
+        }
+
+        .well {
+          position: relative;
+          margin: 0 0.5rem;
+          padding: 1.5rem;
+
+          .message-person { 
+            padding-left: 3rem;
+            background: url(../img/icon-portrait.png) no-repeat;
+            background-size: 2.25rem;
+
+            h3 {
+              margin-bottom: 0.5rem;
+              color: #666;
+              font-size: 1rem;
+            }
+
+            small {
+              margin-bottom: 1.2rem;
+              display: block;
+              color: $darkGrey;
+              font-size: 0.75rem;
+            }
+
+            .btn { font-size: 0.75rem; }
+          }
+
+          .h3-push {
+            color: $hotText;
+            width: 28%; 
+          }
+
+          p {
+            color: #666;
+            font-size: 0.875rem;
+            line-height: 1.5;
+
+            a { 
+              color: #aaa;
+              font-weight: 300;
+            }
+          }
+        }
+
+        .right-triangle {
+          position: absolute;
+          top: 50%;
+          right: -1.5rem;
+          -webkit-transform: translateY(-50%);
+             -moz-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+                  transform: translateY(-50%);
+        }
+      }
+
+      .dl-group-full {
+
+        dl { 
+          padding: 0;
+        }
+      }
+    }
+
+    .profile-affix {
+      visibility: hidden;
+      position: fixed !important;
+      top: 65px !important;
+      left: 0;
+      right: 0;
+      padding: 1.2rem 3.4rem 1.2rem 6.2rem;
+      z-index: 101;
+      background-color: #fff;
+      background-position: 3.4rem 50%;
+      background-size: 2.125rem;
+      background-repeat: no-repeat;
+      border-bottom: 1px solid $borderGrey;
+      -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.10);
+         -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.10);
+              box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.10);
+
+      &.male {
+        background-image: url(../img/portrait-male-non-hotspot.png);
+      }
+
+      &.hotspot.male {
+        background-image: url(../img/portrait-male.png);
+      }
+
+      &.female {
+        background-image: url(../img/portrait-female-non-hotspot.png);
+      }
+
+      &.hotspot.female {
+        background-image: url(../img/portrait-female.png);
+      }
+
+      h1 {
+        display: inline-block;
+        font-size: 1.375rem;
+
+        .hotspot & {
+          color: $hotText;
+        }
+      }
+
+      .top-info {
+        display: inline-block;
+      }
+
+      .phone {
+        margin-right: 2rem;
+        padding-left: 1.5rem;
+        display: inline-block;
+        color: $linkColor;
+        font-size: 1.125rem;
+        background: url(../img/icon-phone.png) no-repeat;
+        background-position: 0 50%;
+        background-size: 1rem 0.8125rem;
+      }
+
+      dl {
+        margin: 0 2rem 0 0;
+        display: inline-block;
+
+        dt {
+          display: inline;
+          color: #aaa;
+          font-size: 0.75rem;
+          font-weight: 300;
+          text-transform: uppercase;
+        }
+
+        dd {
+          display: inline;
+          margin: 0;
+          color: #777;
+          font-size: 1.125rem;
+        }
+      }
+
+      .nav-tabs {
+        top: 0.8rem;
+        right: 3.4rem;
+
+        li {
+          margin-left: 1.2rem;
+          width: 2.5rem;
+          height: 2.5rem;
+          border: none;
+
+          label {
+            display: block;
+            height: 100%;
+            cursor: pointer;
+
+            input {
+              display: none;
+            }
+
+            &.active {
+              //background-color: $btnDefaultHover;
+              //border-radius: 6px;
+            }
+          }
+
+          &:nth-child(1) label {
+            background-image: url(../img/icon-patient.png);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: 1.625rem;
+          }
+
+          &:nth-child(2) label {
+            background-image: url(../img/icon-tasks.png);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: 1.5rem 1.625rem;
+          }
+
+          &:nth-child(3) label {
+            background-image: url(../img/icon-messages.png);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: 1.9375rem 1.5625rem;
+          }
+
+          &:nth-child(4) label {
+            background-image: url(../img/icon-encounter.png);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: 1.625rem 1.5625rem;
+          }
+        }
+      }
+
+      &.stuck {
+        visibility: visible;
+
+        .top-info { display: none; }
+      }
+    }
+  }
+
+  aside {
+    height: 100px;
+    background: $lightGrey;
+  }
+}
+
+.message-encounter,
+.message-tasks {
+
+  a.hot-color { color: $hotText; }
+  a.hot-color:hover { text-decoration: underline; }
+
+  p {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.875rem;
+    line-height: 1.5;
+
+    a { 
+      color: #aaa;
+      font-weight: 300;
+    }
+  }
+}
+
+
+
+.profile-slide {
+      padding: 1rem;
+      width: 100%;
+      background: #f7f7f7; 
+    }
+      .profile-card .profile-border .tab-content .profile-slide h3 {
+        
+      }
+        .profile-card .profile-border .tab-content .profile-slide h3.hotspot {
+          color: #f6b23d !important; 
+        }
+      .profile-card .profile-border .tab-content .profile-slide p {
+        margin: 1.5rem 0;
+        color: #999999;
+        font-size: 0.875rem;
+        font-weight: 300;
+        line-height: 1.5; 
+      }
+

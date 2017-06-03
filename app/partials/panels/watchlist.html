@@ -1,0 +1,84 @@
+<div class="aside panel-watchlist panel-rollup" tabindex="-1" role="dialog">
+
+    <img src="bootflat/img/icon-close.png" class="close-panel-bottom" width="24" height="24" ng-click="$hide()">
+
+    <div class="panel-content" ng-controller="WatchlistController">
+
+        <header>
+
+            <img src="bootflat/img/icon-close.png" class="close-panel-bottom" width="24" height="24" ng-click="$hide()">
+        
+            <h1><strong>Watchlist</strong></h1>
+
+        </header>
+
+            <ul class="clearfix">
+
+                <li id="tile-watchlist-{{ $index }}" class="tiles" ng-repeat="patient in patients" ng-show="patient.watchlist" load-dispatcher>
+
+                    <a>
+
+                        <div class="fold-zone" ng-click="foldWatchlist($index)"></div>
+
+                        <div class="tile-inner eq-height">
+                            
+                            <img src="bootflat/img/hotspot-folded.png" class="folded">
+                            <img src="bootflat/img/base-layer.png" class="base">
+                            <img src="bootflat/img/hotspot-unfolded.png" class="unfolded">
+
+                            <div class="tile-content" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-all-patients.html" bs-aside="aside" data-container=".page-wrapper">
+                      
+                                <h2>{{ patient.name | displayName | characters: 50 }}</h2>
+
+                                <div class="dl-group">
+                                    <dl>
+                                        <dt>Primary Physician</dt>
+                                        <dd>Dr. {{ patient.physician | doctorName }}</dd> 
+                                    </dl>
+                                </div>
+
+                                <div class="dl-group dl-group-full">
+                                    <dl class="col-1">
+                                        <dt>Diagnoses</dt>
+                                        <dd>
+                                            <div ng-repeat="diagnosis in patient.diagnoses">
+                                                {{ diagnosis }}
+                                            </div>
+                                        </dd> 
+                                    </dl>
+
+                                    <dl class="col-2">
+                                        <dt>Age</dt>
+                                        <dd>{{ patient.age }}</dd> 
+                                    </dl>
+
+                                    <dl class="col-3">
+                                        <dt>Gender</dt>
+                                        <dd>{{ patient.gender }}</dd> 
+                                    </dl>
+                                </div>
+
+                                <div class="well">
+                                    <p>
+                                        <strong>{{ patient.tasks.type }}</strong>
+                                        <br>
+                                        {{ patient.tasks.time }}
+                                    </p>
+                                </div>  
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </li>
+            </ul>
+
+
+
+    </div>
+   
+</div>
+
+

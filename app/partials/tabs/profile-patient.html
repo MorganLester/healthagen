@@ -1,0 +1,53 @@
+<div class="patient-tab-well">
+
+  <div class="dl-group dl-group-full clearfix">
+    <div class="dl-row">
+        <dl class="dl-span-2">
+            <dt>Case Managers</dt>
+            <dd>
+                <div ng-repeat="manager in patient.managers">
+                    {{ $index + 1 }}. {{ manager }} <a>edit</a>
+                </div>
+            </dd>
+        </dl>
+        <div class="dl-group dl-group-full clearfix">
+            <dl>
+                <dt>Gender</dt>
+                <dd>{{ patient.gender }}</dd>
+            </dl>
+            <dl>
+                <dt>Careteam ID</dt>
+                <dd>588620{{ patient.id }}</dd>
+            </dl>
+        </div>
+        <dl class="dl-span-2">
+            <dt>Program</dt>
+            <dd>Care Program</dd>
+        </dl>
+        <dl class="dl-span-2">
+            <dt>Address: Home</dt>
+            <dd>12345 Grabel Ln,<br>Folkston, GA 80435</dd>
+        </dl>
+    </div>
+
+    <div class="dl-row">
+        <dl class="dl-span-2">
+            <dt>Primary contact</dt>
+            <dd>{{ patient.name | displayName }}</dd>
+        </dl>
+        <dl class="dl-span-2">
+            <dt>Insurer</dt>
+            <dd>{{ patient.insurer }}</dd>
+        </dl>
+        <dl class="dl-span-2">
+            <dt>Eligibility</dt>
+            <dd>01/01/2011</dd>
+        </dl>
+        <dl class="dl-span-2">
+            <dt>Primary Physician</dd>
+            <dd>{{ patient.physician | doctorName }}<br>(606) 123-4567</dd>
+        </dl>
+    </div>
+  </div>
+  
+</div>

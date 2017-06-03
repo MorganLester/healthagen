@@ -1,0 +1,154 @@
+
+<section class="section-goals section-content">
+
+    <div data-ng-include="'app/partials/profile.html'"></div>
+
+    <div class="clearfix">
+    
+        <aside class="aside-navigation col-md-3 col-sm-12 col-xs-12 pull-left" role="navigation" data-ng-include data-src="'app/partials/navigation.html'"></aside>
+
+        <div class="article-panel col-md-9 col-sm-12 col-xs-12 pull-right clearfix">
+
+            <div class="article-wrapper">
+
+                <div class="section-title clearfix">
+
+                    <h2 class="pull-left">Playlists</h2>
+
+                    <div class="pull-right">
+                        <span class="btn-label">View</span>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default arrow-right">Running</button>  
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <ul class="module-list module-goals">
+
+                    <li class="clearfix">    
+
+                        <h2><a data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-goals-playlists.html" bs-aside="aside" data-container=".page-wrapper"><strong>Adult Weight Management</strong></a></h2>
+
+                        <div class="dl-group dl-group-full clearfix">
+                            <dl class="col-1">
+                                <dt>&nbsp;</dt>
+                                <dd>
+                                    <ul class="circle">
+                                        <li id="circle-{{ n }}" ng-class="{'circle-done': n <= 3}" ng-repeat="n in [7] | range"></li> 
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl class="col-2">
+                                <dt>&nbsp;</dt>
+                                <dd>4 of 7 Tasks Complete</dd>
+                            </dl>
+                            <dl class="col-3">
+                                <dt>Started</dt>
+                                <dd>06/07/2013</dd>
+                            </dl>
+                        </div>
+
+                        <div class="well">
+                            <div class="dl-group clearfix">
+                                <dl class="col-4">
+                                    <dt>Goal</dt>
+                                    <dd>Lose 40lbs by 07/15/2014</dd>
+                                </dl>
+
+                                <dl class="col-5">
+                                    <dt>Next Task</dt>
+                                    <dd>03/01/14 &mdash; In&ndash;Home Exercise</dd>
+                                </dl>
+                            </dl>
+                        </div>
+
+                    </li>
+
+                    <li class="clearfix">    
+
+                        <h2><a><strong>Diabetes - Adult</strong></a></h2>
+
+                        <div class="dl-group dl-group-full clearfix">
+                            <dl class="col-1">
+                                <dt>&nbsp;</dt>
+                                <dd>
+                                    <ul class="circle">
+                                        <li id="circle-{{ n }}" ng-class="{'circle-done': n <= 6}" ng-repeat="n in [9] | range"></li> 
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl class="col-2">
+                                <dt>&nbsp;</dt>
+                                <dd>7 of 9 Tasks Complete</dd>
+                            </dl>
+                            <dl class="col-3">
+                                <dt>Started</dt>
+                                <dd>06/07/2013</dd>
+                            </dl>
+                        </div>
+
+                        <div class="well">
+                            <div class="dl-group clearfix">
+                                <dl class="col-4">
+                                    <dt>Goal</dt>
+                                    <dd>Reduce HgA1c to a healthy range</dd>
+                                </dl>
+
+                                <dl class="col-5">
+                                    <dt>Next Task</dt>
+                                    <dd>04/15/14 &mdash; HgA1c Appointment</dd>
+                                </dl>
+                            </dl>
+                        </div>
+
+                    </li>
+
+                    <li class="clearfix">    
+
+                        <h2><a><strong>Adult Weight Management</strong></a></h2>
+
+                        <div class="dl-group dl-group-full clearfix">
+                            <dl class="col-1">
+                                <dt>&nbsp;</dt>
+                                <dd>
+                                    <ul class="circle">
+                                        <li id="circle-{{ n }}" ng-class="{'circle-done': n <= 3}" ng-repeat="n in [7] | range"></li> 
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl class="col-2">
+                                <dt>&nbsp;</dt>
+                                <dd>4 of 7 Tasks Complete</dd>
+                            </dl>
+                            <dl class="col-3">
+                                <dt>Started</dt>
+                                <dd>06/07/2013</dd>
+                            </dl>
+                        </div>
+
+                        <div class="well">
+                            <div class="dl-group clearfix">
+                                <dl class="col-4">
+                                    <dt>Goal</dt>
+                                    <dd>Lose 40lbs by 07/15/2014</dd>
+                                </dl>
+
+                                <dl class="col-5">
+                                    <dt>Next Task</dt>
+                                    <dd>03/01/14 &mdash; In&ndash;Home Exercise</dd>
+                                </dl>
+                            </dl>
+                        </div>
+
+                    </li>
+                </ul>
+
+                <p class="view-more-results"><a>View More Results</a></p>
+
+            </div><!-- // .article-wrapper -->
+
+        </div>
+    </div>
+
+</section>

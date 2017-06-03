@@ -1,0 +1,102 @@
+<header class="section-header section-header-full">
+
+    <div class="clearfix">
+
+        <h1 class="pull-left">{{ playlists.length }} Active Playlists</h1>
+
+        <div class="pull-right">
+            <div class="btn-group btn-100">
+                <a href="#/tasks" class="btn btn-primary">List</a>
+                <a class="btn btn-default" disabled="disabled">Playlists</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div data-ng-include="'app/partials/search-box.html'"></div>
+
+</header>
+
+<section class="section-playlists section-content-left">
+
+    <div class="clearfix">
+
+        <div class="article-panel col-md-9 col-sm-12 col-xs-12 pull-left">
+
+            <div class="article-wrapper">
+
+                <h2>Playlists</h2>
+
+                <ul>
+
+                    <li ng-class="{ 'hotspot' : playlist.hotspot === true }" class="article-li clearfix" ng-repeat="playlist in playlists | filter:search">
+
+                        <header class="pull-left clearfix">
+
+                            <h2><a ng-class="{ 'hotspot' : playlist.hotspot === true }" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-playlists.html" bs-aside="aside" data-container=".page-wrapper">{{ playlist.title }}</a></h2>
+                            
+                            <div class="dl-group clearfix">
+                                <dl>
+                                    <dt>Patients</dt>
+                                    <dd>{{ playlist.patients }}</dd>
+                                </dl>
+
+                                <dl>
+                                    <dt>Steps</dt>
+                                    <dd>{{ playlist.steps }}</dd>
+                                </dl>
+
+                                <dl>
+                                    <dt>Effectiveness</dt>
+                                    <dd>{{ playlist.effectiveness }}%</dd>
+                                </dl>
+                            </div>
+
+                            <p>{{ playlist.goal }}</p>
+
+                        </header>
+
+                        <footer class="pull-right">
+
+                            <img src="bootflat/img/playlist-step{{ playlist.stepPosition }}.png">
+
+                            <div class="dl-group dl-group-full clearfix">
+                                <dl class="pull-left">
+                                    <dt>Step {{ playlist.stepPosition }}</dt>
+                                    <dd ng-class="{ 'hot-color' : playlist.hotspot === true }">{{ playlist.stepDescription }}</dd> 
+                                </dl>
+
+                                <dl class="pull-right">
+                                    <dt>Patients</dt>
+                                    <dd>{{ playlist.patients }}</dd>
+                                </dl>
+                            </div>
+
+                        </footer>
+                    </li>
+                </ul>
+
+            </div><!-- // .article-wrapper -->
+        </div><!-- // .pull-left -->
+
+        <aside class="aside-playlists col-md-3 col-sm-12 col-xs-12 pull-right">
+
+            <div class="aside-inner">
+
+                <h3>All Playlists</h3>
+
+                <input type="text" class="form-control" ng-model="search" placeholder="Search">
+
+                <ul>
+                    <li class="th-list clearfix">Name <span>Effectiveness</span></li>
+                    <li class="clearfix" ng-repeat="playlist in playlists | filter:search">{{ playlist.title }} <span>{{ playlist.effectiveness }}%</span></li>
+                </ul>
+
+            </div>
+
+        </aside>
+   
+    </div>
+    
+</section>
+

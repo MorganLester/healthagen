@@ -1,0 +1,267 @@
+
+html, 
+body {
+  position: relative;
+  height: 100%;
+  background: url(../img/body-bg.png) repeat;
+}
+
+html { 
+  font-size: 100%; 
+}
+
+body {
+  color: #666;
+  font: {
+    size: 1rem;
+    family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    weight: 400;
+  }
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+}
+
+a, 
+a:visited {
+  color: $linkColor;
+  text-decoration: none;
+  outline: none;
+
+  &:hover, 
+  &:active, 
+  &:focus { 
+    color: $linkColor;
+    text-decoration: none; }
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.1875rem; }
+h4 { font-size: 1rem; }
+h5, 
+h6 { font-size: 0.8125rem; }
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+ol, 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+html, body, .page-wrapper, .scroller {
+  height: 100%;
+}
+
+.scroller {
+  padding-top: 65px;
+  overflow-y: scroll;
+  background: #f6f6f6;
+}
+
+.page-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: #f6f6f6;
+  -webkit-transition: all 0.4s ease;
+     -moz-transition: all 0.4s ease;
+          transition: all 0.4s ease;
+}
+
+.table {
+  display: table;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+}
+
+a.hotspot,
+.hot-color {
+  color: $hotText;
+
+  small { color: $hotText; }
+}
+
+%text-overflow {
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+   -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+           overflow: hidden;
+}
+
+.badge {
+  color: $darkGrey;
+  background: #fff;
+
+  &.hotspot { 
+    color: #fff;
+    background: $hotBg; 
+  }
+}
+
+.caret-right {
+  margin-left: 6px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border: solid transparent;
+  border-color: rgba(136, 181, 255, 0);
+  border-left-color: $btnPrimary;
+  border-width: 5px;
+}
+
+.caret-bottom {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url(../img/icon-down-arrow.png) no-repeat;
+  background-size: 1.5rem auto;
+
+  .minimized & {
+    margin-top: -2px;
+    -webkit-transform:rotate(180deg);
+        -ms-transform:rotate(180deg); 
+            transform:rotate(180deg);
+  }
+}
+
+h2 label,
+h3 label { cursor: pointer; }
+
+.dl-group {
+  display: table;
+  text-align: justify;
+
+  &.dl-group-full { width: 100%; }
+
+  h3 {
+    display: table-cell;
+    font-size: 1.125rem;
+  }
+
+  .dl-row {
+    display: table-row;
+
+    dd {
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  dl {
+    padding-right: 2rem;
+    display: table-cell;
+    border-collapse: separate;
+
+    dt {
+      color: #aaa;
+      font-size: 0.75rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    dd {
+      margin: 0;
+      color: #666;
+      font-size: 0.875rem;
+      text-align: left;
+    }
+
+    &.dl-image {
+      vertical-align: middle;
+    }
+
+    .phone {
+      margin-right: 0.5rem;
+      padding-left: 1.5rem;
+      display: inline-block;
+      color: $linkColor;
+      font-size: 1.125rem;
+      background: url(../img/icon-phone.png) no-repeat;
+      background-position: 0 50%;
+      background-size: 1rem 0.8125rem;
+    }
+  }
+
+  &.dl-group-stacked {
+    margin-top: 1rem;
+    display: block;
+    text-align: left;
+
+    @include responsive(tablet) { margin-top: 0; }
+
+    dl {
+      padding-right: 0;
+      display: block;
+    }
+  }
+
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.well {
+  margin: 1.5rem 0;
+  background: $lightGrey;
+
+  input {
+    color: #aaa;
+    font-size: 0.875rem;
+    background: #EBEBEB;
+    border: 1px solid transparent;
+  }
+
+  ::-webkit-input-placeholder {
+    color: #aaa;
+    font-style: italic;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    color: #aaa;
+    font-style: italic;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    color: #aaa;
+    font-style: italic;
+  }
+
+  :-ms-input-placeholder {  
+    color: #aaa;
+    font-style: italic;
+  }
+}
+
+p.well {
+  margin: 0.8rem 0;
+  padding-bottom: 3rem;
+  color: $darkGrey;
+  font-weight: 300;
+  background: $lightGrey;
+}
+
+

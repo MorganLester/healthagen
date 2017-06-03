@@ -1,0 +1,18 @@
+<h3>Watchlist Patients</h3>
+
+<ul>
+  <li ng-repeat="pat in patients" ng-show="pat.watchlist"><a>{{ pat.name | displayName | characters:40 }}</a></li>
+</ul>
+
+<h3>Your Patients</h3>
+
+<ul>
+  <li ng-repeat="pat in patients | limitTo:10"><a ng-class="{active: pat.id==patient.id}">{{ pat.name | displayName | characters:40 }} <span class="badge" ng-class="{'hotspot': pat.id==1}" ng-show="{{ pat.id==5 || pat.id==1 }}">1</span></a></li>
+  <li><a><strong>See 12 Others</strong></a></li>
+</ul>
+
+<h3>All Patients</h3>
+
+<ul>
+  <li><a href="#/all-patients" ng-click="$hide()">View All Patients</a></li>
+</ul>

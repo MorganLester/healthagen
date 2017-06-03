@@ -1,0 +1,32 @@
+<section class="section-conditions section-content">
+
+    <div data-ng-include data-src="'app/partials/profile.html'"></div>
+
+    <div class="clearfix">
+    
+        <aside class="aside-navigation col-md-3 col-sm-12 col-xs-12 pull-left" role="navigation" data-ng-include data-src="'app/partials/navigation.html'"></aside>
+
+        <div class="article-panel col-md-9 col-sm-12 col-xs-12 pull-right clearfix">
+
+            <div class="article-wrapper">
+
+                <div class="section-title clearfix">
+                    <h2 class="pull-left">Conditions <button type="button" class="btn btn-primary">Add Condition</button></h2>
+                </div>
+
+                <div ng-grid="gridConditions"></div>
+
+                <p class="view-more-results"><a>View More Results</a></p>
+
+                <div class="section-title clearfix">
+                    <h2 class="pull-left">Diagnoses <button type="button" class="btn btn-primary">Add Diagnoses</button></h2>  
+                </div> 
+
+                <div ng-grid="gridDiagnoses"></div>
+
+                <p class="view-more-results"><a>View More Results</a></p>
+
+            </div>
+        </div>
+    </div>
+</section>

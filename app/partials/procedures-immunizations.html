@@ -1,0 +1,102 @@
+<section class="section-procedures section-content">
+
+    <div data-ng-include data-src="'app/partials/profile.html'"></div>
+
+    <div class="clearfix">
+    
+        <aside class="aside-navigation col-md-3 col-sm-12 col-xs-12 pull-left" role="navigation" data-ng-include data-src="'app/partials/navigation.html'"></aside>
+
+        <div class="article-panel col-md-9 col-sm-12 col-xs-12 pull-right clearfix">
+
+            <div class="article-wrapper">
+
+                <div class="section-title clearfix">
+                    <h2 ng-class="{'hot-color': patient.hotspot}">Procedures <button type="button" class="btn btn-primary">Add Procedure</button></h2>
+                </div>
+
+                <div ng-hide="patient.hotspot">
+                    <div ng-grid="gridProcedures"></div>
+                </div>
+
+                <div ng-show="patient.hotspot">
+                    <!-- hackish: last minute changes to the grid structure when Hotspots exist; simulating it manually -->
+                    <table class="table-hotspot-manual">
+                        <tr class="ngTopPanel">
+                            <th class="ngHeaderText col0" style="width:80%;">Name</th>
+                            <th class="ngHeaderText" style="width:20%;">Total</th>
+                        </tr>
+                        <tr class="yellow hotspot">
+                            <td class="col0" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-procedures.html" bs-aside="aside" data-container=".page-wrapper">Screen Clinical Depression</td>
+                            <td>1</td>
+                        </tr>
+                        <tr class="hotspot-reason">
+                            <td colspan="5"><span>Patient didn't attend scheduled appointment 02/03/2014</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col0">Assay of Glycated Protein</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td class="col0">Collection of Venous Blood Venipuncture</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td class="col0">Comprehensive Metabolic Panel</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td class="col0">Creatine Other Source</td>
+                            <td>1</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p class="view-more-results"><a>View More Results</a></p>
+
+                <div class="section-title clearfix">
+                    <h2 ng-class="{'hot-color': patient.hotspot}">Immunizations <button type="button" class="btn btn-primary">Add Immunization</button></h2>
+                </div>
+        
+                <div ng-hide="patient.hotspot">
+                    <div ng-grid="gridImmunizations"></div>
+                </div>
+
+                <div ng-show="patient.hotspot">
+                    <!-- hackish: last minute changes to the grid structure when Hotspots exist; simulating it manually -->
+                    <table class="table-hotspot-manual">
+                        <tr class="ngTopPanel">
+                            <th class="ngHeaderText col0" style="width:80%;">Name</th>
+                            <th class="ngHeaderText" style="width:20%;">Total</th>
+                        </tr>
+                        <tr class="yellow hotspot">
+                            <td class="col0" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-immunizations.html" bs-aside="aside" data-container=".page-wrapper">Screen Clinical Depression</td>
+                            <td>1</td>
+                        </tr>
+                        <tr class="hotspot-reason">
+                            <td colspan="5"><span>Patient didn't attend scheduled appointment 02/03/2014</span></td>
+                        </tr>
+                        <tr>
+                            <td class="col0">Assay of Glycated Protein</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td class="col0">Collection of Venous Blood Venipuncture</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td class="col0">Comprehensive Metabolic Panel</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td class="col0">Creatine Other Source</td>
+                            <td>1</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p class="view-more-results"><a>View More Results</a></p>
+
+            </div>
+        </div>
+    </div>
+</section>

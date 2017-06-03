@@ -1,0 +1,104 @@
+
+<section class="section-assessments section-content">
+
+    <div data-ng-include="'app/partials/profile.html'"></div>
+
+    <div class="clearfix">
+    
+        <aside class="aside-navigation col-md-3 col-sm-12 col-xs-12 pull-left" role="navigation" data-ng-include data-src="'app/partials/navigation.html'"></aside>
+
+        <div class="article-panel col-md-9 col-sm-12 col-xs-12 pull-right clearfix">
+
+            <div class="article-wrapper">
+
+                <div class="section-title clearfix">
+
+                    <h2 class="pull-left">Assessments <button type="button" class="btn btn-primary">View All Assessments</button></h2>
+
+                    <div class="pull-right">
+                        <span class="btn-label">Filter by</span>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default arrow-right">All</button>  
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="module-list module-meds">
+
+                    <li class="clearfix">
+
+                        <header class="pull-left clearfix">
+
+                            <h2><a data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-assessments.html" bs-aside="aside" data-container=".page-wrapper"><strong>Diabetes - Adult - Conditions</strong> <span class="pull-right">53 Ques</span></a></h2>
+
+                            <ul class="bar clearfix">
+                                <li id="bar-{{ n }}" ng-class="{'bar-done': n <= 27}" ng-repeat="n in [50] | range"></li> 
+                            </ul>
+
+                            <div class="dl-group clearfix">
+                                <dl>
+                                    <dt>Encounter</dt>
+                                    <dd>March 28th, 2014</dd>
+                                </dl>
+
+                                <dl>
+                                    <dt>Case Manager</dt>
+                                    <dd>Miriam Makeba</dd>
+                                </dl>
+                            </div>
+
+                        </header>
+
+                    </li>
+
+                    <li class="clearfix">
+
+                        <header class="pull-left clearfix">
+
+                            <h2><a data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-assessments.html" bs-aside="aside" data-container=".page-wrapper"><strong>Coronary Artery Disease (CAD)</strong> <span class="pull-right">47 Ques</span></a></h2>
+
+                            <ul class="bar clearfix">
+                                <li id="bar-{{ n }}" ng-class="{'bar-done': n <= 23}" ng-repeat="n in [50] | range"></li> 
+                            </ul>
+
+                            <div class="dl-group clearfix">
+                                <dl>
+                                    <dt>Encounter</dt>
+                                    <dd>March 28th, 2014</dd>
+                                </dl>
+
+                                <dl>
+                                    <dt>Case Manager</dt>
+                                    <dd>Miriam Makeba</dd>
+                                </dl>
+                            </div>
+
+                        </header>
+
+                    </li>
+
+                </ul>
+
+                <p class="view-more-results"><a>View More Results</a></p>
+
+                <div class="section-title clearfix">
+                    <h2 class="pull-left">Problem <button type="button" class="btn btn-primary">Add Problem</button></h2>
+
+                    <div class="pull-right">
+                        <span class="btn-label">Filter by</span>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default arrow-right">All</button>  
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-grid="gridProblems"></div>
+
+                <p class="view-more-results"><a>View More Results</a></p>
+
+            </div><!-- // .article-wrapper -->
+
+        </div>
+    </div>
+
+</section>

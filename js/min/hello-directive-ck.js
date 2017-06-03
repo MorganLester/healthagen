@@ -1,0 +1,1 @@
+angular.module("helloDirective",[]).directive("heyhey",function(){return{restrict:"A",link:function(e,t,i){t.waypoint("sticky",{context:".page-scroll",offset:-140})}}});

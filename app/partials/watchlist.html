@@ -1,0 +1,39 @@
+<section class="section-watchlist section-content">
+ 
+  <ul class="isotope isotope-watchlist grid-tile" ng-cloak>
+
+    <li id="{{ $index + 1 }}" ng-repeat="patient in patients" class="tile">
+
+        <h2>{{ patient.name | displayName }}</h2>
+
+        <div class="dl-group clearfix">
+            <dl>
+                <dt>Age</dt>
+                <dd>{{ patient.age }}</dd> 
+            </dl>
+            <dl>
+                <dt>Gender</dt>
+                <dd>{{ patient.gender }}</dd> 
+            </dl>
+            <dl>
+                <dt>Added</dt>
+                <dd>01/04/2014</dd> 
+            </dl>
+        </div>
+
+        <div class="dl-group clearfix">
+            <dl>
+                <dt>Hotspot Notifications</dt>
+                <dd>
+                  <div class="hotspot-labels">
+                    <span class="label label-primary">Placeholder</span>
+                  </div>
+                </dd> 
+            </dl>
+        </div>   
+
+    </li>
+
+  </ul>
+
+</section>

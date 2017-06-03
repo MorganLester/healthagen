@@ -1,0 +1,124 @@
+
+
+<div class="aside panel-messages panel-rollup" tabindex="-1" role="dialog">
+
+  <img src="bootflat/img/icon-close.png" class="close-panel-bottom" width="24" height="24" ng-click="$hide()">
+
+  <div class="panel-content clearfix" ng-controller="MessagesController">
+
+    <h1>Messages</h1>
+
+    <div class="aside-messages col-md-3 col-sm-12 col-xs-12 pull-left">
+   
+      <div class="aside-inner">
+
+        <div ng-model="tabs.activeTab" bs-tabs="tabs"></div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-6 pull-left">
+
+      <div class="message-header clearfix">
+
+        <h2 class="pull-left">{{ patient.name | displayName }}</h2>
+
+        <div class="checkbox-data pull-right">
+          <div class="checkbox-hide">
+              <input id="data-00" type="checkbox">  
+              <label class="checklist-label" for="data-00"></label>
+          </div>   
+          <label class="adjust-to-h2" for="data-00">Show only Clinical Data</label>
+
+        </div>
+
+      </div>
+
+      <ol>
+        <li ng-repeat="message in messages">
+          <span class="pull-right unread" ng-show="(message.from == 'You')">1 Unread Message</span>
+          <h5>{{ message.from }} <span ng-show="(message.from == 'You')">(Joyce)</span></h5>
+          <span>Jan. 23 2014 8:15am</span>
+          <p>{{ message.body }}</p>
+        </li>
+      </ol>
+
+    </div>
+
+    <aside class="col-md-3 aside-info pull-right">
+
+      <h2>Patient Info</h2>
+
+      <div class="aside-inner">
+
+        <h3>{{ patient.name | displayName }}</h3>
+        <span class="phone">(212) 123-4567</span>
+
+        <div class="dl-group dl-group-full clearfix">
+          <dl>
+            <dt>Age</dt>
+            <dd>{{ patient.age }}</dd>
+          </dl>
+          <dl>
+            <dt>DOB</dt>
+            <dd>05/21/{{ 2014 - patient.age }}</dd>
+          </dl>
+          <dl>
+            <dt>Gender</dt>
+            <dd>{{ patient.gender }}</dd>
+          </dl>
+        </div>
+
+        <div class="dl-group dl-group-stacked clearfix">
+          <dl>
+              <dt>Case Managers</dt>
+              <dd>
+                <div ng-repeat="manager in patient.managers">
+                  {{ manager }} <a>edit</a>
+                </div>
+              </dd>
+          </dl>
+          <dl>
+            <dt>Primary contact</dt>
+            <dd>{{ patient.name | displayName }}</dd>
+          </dl>
+          <dl>
+            <dt>Address: Home</dt>
+            <dd>12345 Grabel Ln,<br>Folkston, GA 80435</dd>
+          </dl>
+          <dl>
+            <dt>Email</dt>
+            <dd><a><em>{{ patient.name.first | firstLetter | lowercase }}{{ patient.name.last | lowercase }}@earthlink.net</em></a></dd>
+          </dl>
+          <dl>
+            <dt>Primary Care Doctor</dt>
+            <dd>{{ patient.physician | doctorName }}<br>Georgia Care Associates<br>23145 Bryant Ave, Yulee, GA 80328<br><a>(606) 123-4567</a></dd>
+          </dl>
+        </div>
+
+        <div class="dl-group dl-group-full clearfix">
+          <dl>
+            <dt>Insurer</dt>
+            <dd>{{ patient.insurer }}</dd>
+          </dl>
+          <dl>
+            <dt>Eligibility</dt>
+            <dd>1/01/2011</dd>
+          </dl>
+        </div>
+
+        <div class="dl-group dl-group-stacked clearfix">
+          <dl>
+              <dt>ID</dt>
+              <dd>588620{{ patient.id }}</dd>
+          </dl>
+        </div>
+
+      </div>
+
+    </aside>
+
+  </div>
+ 
+</div>

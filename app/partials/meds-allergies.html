@@ -1,0 +1,107 @@
+
+<section class="section-meds section-content">
+
+    <div data-ng-include="'app/partials/profile.html'"></div>
+
+    <div class="clearfix">
+    
+        <aside class="aside-navigation col-md-3 col-sm-12 col-xs-12 pull-left" role="navigation" data-ng-include data-src="'app/partials/navigation.html'"></aside>
+
+        <div class="article-panel col-md-9 col-sm-12 col-xs-12 pull-right clearfix">
+
+            <div class="article-wrapper">
+
+                <div class="section-title clearfix">
+
+                    <h2 class="pull-left">Medications <button type="button" class="btn btn-primary">Add Medications</button></h2>
+
+                    <div class="pull-right">
+                        <span class="btn-label">Filter by</span>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default arrow-right">All</button>  
+                        </div>
+                    </div>
+                    
+                    <!--
+                    <div class="pull-right">
+                        <span class="btn-label">Order by</span>
+
+                        <select ng-model="medOrder" ng-init="medOrder='title'">
+                            <option value="title" selected>Name (ascending)</option>
+                            <option value="-title">Name (descending)</option>
+                        </select>
+                    </div>
+                    -->
+
+                </div>
+
+                <ul class="module-list module-meds">
+
+                    <li class="clearfix" ng-repeat="med in medications | orderBy:medOrder">
+
+                        <header class="pull-left clearfix">
+
+                            <h2><a data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-meds.html" bs-aside="aside" data-container=".page-wrapper"><strong>{{ med.title }}</strong> &ndash; {{ med.dosage }}</a></h2>
+
+                            <div class="dl-group clearfix">
+                                <dl>
+                                    <dt>Started</dt>
+                                    <dd>June 7th, 2013</dd>
+                                </dl>
+
+                                <dl>
+                                    <dt>Ended</dt>
+                                    <dd>March 28, 2014</dd>
+                                </dl>
+
+                                <dl>
+                                    <dt>Dosage</dt>
+                                    <dd>1 Tablet Daily</dd>
+                                </dl>
+                            </div>
+
+                        </header>
+
+                        <footer class="pull-right">
+
+                            <div class="state-buttons clearfix">
+                           
+                                <img src="bootflat/img/icon-active.png" width="22" height="22" ng-class="{ 'selected' : med.state === 'Active' }">
+
+                                <img src="bootflat/img/icon-inactive.png" width="22" height="22" ng-class="{ 'selected' : med.state === 'Inactive' }">
+                          
+                                <img src="bootflat/img/icon-not-reviewed.png" width="22" height="22" ng-class="{ 'selected' : med.state === 'Not Reviewed' }">
+                              
+                                <span>{{ med.state }}</span>   
+
+                            </div>
+
+                        </footer>
+
+                    </li>
+
+                </ul>
+
+                <p class="view-more-results"><a>View More Results</a></p>
+
+                <div class="section-title clearfix">
+                    <h2 class="pull-left">Allergies <button type="button" class="btn btn-primary">Add Allergies</button></h2>
+
+                    <div class="pull-right">
+                        <span class="btn-label">Filter by</span>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default arrow-right">All</button>  
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-list module-meds">
+                    <p class="well well-lg">No known allergies</p>
+                </div>
+
+            </div><!-- // .article-wrapper -->
+
+        </div>
+    </div>
+
+</section>

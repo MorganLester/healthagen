@@ -1,0 +1,72 @@
+// General 
+
+@mixin border-top-pad($color: transparent, $px: 7px) {
+  border-top: $px solid $color;
+}
+
+@mixin justify-no-float($left, $right) {
+  text-align: justify;
+
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+  }
+
+  #{$left}, #{$right} {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+
+    #{$left}:before {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+    }
+  }
+}
+
+// Media Queries
+
+$mobile: 480px;
+$tablet-sm: 700px;
+$tablet: 992px;
+$tablet-landscape: 1024px;
+$desk-lg: 1400px;
+$desk-md: 1200px;
+
+@mixin responsive($width) {
+  @if $width == desk-lg {
+    @media only screen and (min-width: $desk-lg) {
+      @content;
+    }
+  }
+  @else if $width == desk-md {
+    @media only screen and (min-width: $desk-md) {
+      @content;
+    }
+  }
+  @else if $width == tablet {
+    @media only screen and (max-width: $tablet) {
+      @content;
+    }
+  }
+  @else if $width == tablet-landscape {
+    @media only screen and (max-width: $tablet-landscape) {
+      @content;
+    }
+  }
+  @else if $width == tablet-sm {
+    @media only screen and (max-width: $tablet-sm) {
+      @content;
+    }
+  }
+  @else if $width == mobile {
+    @media only screen and (max-width: $mobile) {
+      @content;
+    }
+  }
+}
+
+

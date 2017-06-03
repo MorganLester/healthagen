@@ -1,0 +1,54 @@
+<h2 class="h2-messages clearfix">Encounters <a>view all</a> <button class="btn btn-default pull-right" ng-click="openEncounter()">Create Encounter</button></h2>
+
+<div class="message-pane clearfix" ng-controller="MessagesController">
+
+  <div class="well message-encounter pull-left clearfix">
+
+    <img src="bootflat/img/icon-triangle.png" width="12" height="31" class="left-triangle">
+    <img src="bootflat/img/icon-triangle.png" width="12" height="31" class="right-triangle">
+
+    <div class="pull-left col-md-9">
+
+        <div class="dl-group clearfix">
+        
+            <h3 ng-class="{ 'hotspot' : patient.hotspot === true }" class="h3-push">Follow-up</h3>
+
+            <dl>
+                <dt>Time</dt>
+                <dd>Today at 12pm</dd>
+            </dl>
+            <dl>
+                <dt>Primary Physician</dt>
+                <dd>{{ patient.physician | doctorName }}</dd>
+            </dl>
+            <dl>
+                <dt>Planned Assessments</dt>
+                <dd>COPD</dd>
+            </dl>
+
+        </div>
+
+        <p>Laoreet sit amet cursus sit amet, dictum sit amet justo donec enim diam, vulputate ut pharetra sit amet, aliquam. Euismod elementum nisi, quis eleifend quam adipiscing vitae proin sagittis, nisl rhoncus mattis rhoncus... <a>More</a></p>
+
+    </div>
+
+    <div class="pull-right col-md-3">
+
+        <div class="dl-group dl-group-full clearfix">
+          <dl>
+              <dt>Recommended Assessments</dt>
+              <dd>
+                <a class="hot-color">Chronic Kidney Disease</a>
+                <br>
+                <a class="hot-color">Diabetes - Adult</a>
+              </dd>
+          </dl>
+        </div>
+
+    </div>  
+
+  </div>
+
+</div>
+
+

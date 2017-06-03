@@ -1,0 +1,181 @@
+.section-overview {
+
+  .content-overview {
+    position: relative;
+    top: -10px;
+    padding-left: 0.5rem;
+    width: 69%;
+  }
+
+  .aside-overview {
+    width: 30%;
+  }
+}
+
+
+.tile-overview {
+  position: relative;
+  width: 100%;
+
+  .tile {
+    float: left;
+    width: 33.333333333%;
+    border: 10px solid transparent;
+
+    .tile-inner {
+      padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+      width: 100%;
+      height: 100%;
+      background: #fff url(../img/icon-hotspot.png) no-repeat right 1rem top 0.8rem;
+      background-size: 30px 30px;
+      border: 1px solid $hotColor;
+      border-radius: 3px;
+
+      a {
+        display: block;
+        height: 100%;
+      }
+
+      h2 {
+        margin-left: 0.5rem;
+        color: $hotColor;
+      }
+
+      .well {
+        padding: 1rem 0 1rem 0.625rem;
+      }
+
+      .dl-group dl {
+        padding-right: 1.5rem;
+      }
+    }
+  }
+}
+
+
+
+.grid-tile {
+  width: 100%;
+
+  .tile-lg, .tile-md {
+    float: left;
+    padding: 2rem 1rem;
+    // width: 280px;
+    min-height: 280px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid $hotColor;
+    border-radius: 5px;
+
+    h2 {
+      margin-bottom: 1.5rem;
+      color: $hotColor;
+    }
+
+    h4 {
+      color: $hotColor;
+      font-size: 1rem;
+      line-height: 1.5;
+
+      small {
+        display: block;
+        color: #999;
+        font-size: .875rem;
+      }
+    }
+  }
+
+  .dl-group {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.isotope-cmo {
+
+  .tile-lg {
+    position: relative;
+    margin: 0 1rem 1rem 0;
+    padding-bottom: 2.5rem;
+    width: 380px;
+    min-height: 250px;
+    overflow: hidden;
+
+    h2 {
+      padding-right: 10%;
+      font-size: 1.375rem;
+      font-weight: 300;
+      line-height: 1.25;
+
+      span {
+        color: #bbb;
+        font-size: 1.375rem;
+      }
+    }
+
+  .dl-group {
+      margin-bottom: 1rem;
+
+      dl {
+
+        dt {
+          color: #777;
+          font-weight: 400;
+        }
+
+        dd {
+          font-size: 2.25rem;
+
+          sup {
+            top: -0.75rem;
+            font-size: 1.125rem;
+          }
+        }
+      }
+    }
+
+    &.hotspot dd {
+      color: $hotColor;
+    }
+
+    p {
+      position: absolute;
+      bottom: .75rem;
+      left: 1rem;
+      color: #bbb;
+      font-size: .625rem;
+    }
+  }
+
+  .tile-sm {
+    float: left;
+    margin: 0 1rem 1rem 0;
+    padding: 1rem;
+    width: 11.25rem;
+    min-height: 11.25rem;
+    cursor: pointer;
+    color: #7792BC;
+    background: #F4F6F9;
+    border: 1px solid #7792BC;
+    border-radius: 3px;
+
+    h2 {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.25;
+    }
+  }
+}
+
+.isotope-watchlist {
+
+  &.grid-tile {
+
+    .tile {
+      background: #F6F6F6;
+
+      .hotspot-labels {
+        margin-top: 1rem;
+      }
+    }
+  }
+}

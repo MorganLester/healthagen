@@ -1,0 +1,155 @@
+<section class="section-messages section-content clearfix">
+
+  <h1>Messages</h1>
+
+  <aside class="aside-messages col-md-3 pull-left">
+
+    <tabs>
+      <pane title="Patients">
+
+        <div class="aside-inner">
+
+          <h3>Watchlist Patients</h3>
+
+          <ul>
+            <li><a>Bruce David</a></li>
+            <li><a class="active">Betsy Johnson <span class="badge">1</span></a></li>
+            <li><a>Mike Isaac</a></li>
+          </ul>
+
+          <h3>Your Patients</h3>
+
+          <ul>
+            <li><a>Bruce David</a></li>
+            <li><a>Betsy Johnson</a></li>
+            <li><a>Mike Isaac</a></li>
+          </ul>
+
+           <h3>All Patients</h3>
+
+            <ul>
+              <li><a>View All Patients</a></li>
+            </ul>
+
+        </div>
+
+      </div>
+
+      </pane>
+
+      <pane title="Staff">
+
+        <div class="aside-inner">
+        
+          <p>Staff</p>
+
+        </div>
+
+      </pane>
+    </tabs>
+
+  </aside>
+
+  <div class="col-md-6 pull-left">
+
+    <div class="message-header clearfix">
+
+      <h2 class="pull-left">Betsy Johnson</h2>
+      <p class="pull-right">Show only Clinical Data</p>
+
+    </div>
+
+    <ol>
+      <li>
+        <h5>Linda Donna</h5>
+        <span>Jan. 23 2014 8:15am</span>
+        <p>Betsy recently called in with a request for an in-home visit. We talked about what she’s been experiencing recently with her diabetes and mobility issues. Doesn’t use a walker yet but is experiencing joint pain. Can’t move around the house as fast as she used to. Would prefer to see her eat better and have some sort of exercise routine.</p>
+      </li>
+      <li>
+        <h5>You (Joyce)</h5>
+        <span>Jan. 23 2014 8:15am</span>
+        <p>Talked with Betsy. Requested a walker and called her PCP for an appt next week. She’s eating better and has a neighbor taking to her to the farmer’s market every Saturday. I told her to look for fruits she used to eat when she was younger. Melons and apples might be a good place to start.</p>
+      </li>
+      <li>
+        <h5>Shirley Marks</h5>
+        <span>Jan. 23 2014 8:15am</span>
+        <p>Her HgA1c results recently spiked. They’re over 7%. Called her to talk about what happened. Blizzard in her area prevented her from leaving the house and going to the grocery store. As a result, she ended up eating poorly and not exercising. Have a feeling her medication adherence is down. Need to follow up with PCP to see what happened at the appt Miriam set up.</p>
+      </li>
+    </ol>
+
+  </div>
+
+  <aside class="col-md-3 aside-info pull-right">
+
+    <div class="aside-inner" ng-repeat="patient in patients" ng-show="patient.name.first == 'Betsy'">
+
+      <h2>Patient Info</h2>
+
+      <h3>{{ patient.name | displayName }}</h3>
+      <span class="phone">(212) 123-4567</span>
+
+      <div class="dl-group dl-group-full clearfix">
+        <dl>
+          <dt>Age</dt>
+          <dd>{{ patient.age }}</dd>
+        </dl>
+        <dl>
+          <dt>DOB</dt>
+          <dd>05/21/{{ 2014 - patient.age }}</dd>
+        </dl>
+        <dl>
+          <dt>Gender</dt>
+          <dd>{{ patient.gender }}</dd>
+        </dl>
+      </div>
+
+      <div class="dl-group dl-group-stacked clearfix">
+        <dl>
+            <dt>Case Managers</dt>
+            <dd>
+              <div ng-repeat="manager in patient.managers">
+                {{ manager }} <a>edit</a>
+              </div>
+            </dd>
+        </dl>
+        <dl>
+          <dt>Primary contact</dt>
+          <dd>{{ patient.name | displayName }}</dd>
+        </dl>
+        <dl>
+          <dt>Address: Home</dt>
+          <dd>12345 Grabel Ln,<br>Folkston, GA 80435</dd>
+        </dl>
+        <dl>
+          <dt>Email</dt>
+          <dd>{{ patient.name.first | firstLetter | lowercase }}{{ patient.name.last | lowercase }}@earthlink.net</dd>
+        </dl>
+        <dl>
+          <dt>Primary Care Doctor</dt>
+          <dd>{{ patient.physician | doctorName }}<br>Georgia Care Associates<br>23145 Bryant Ave, Yulee, GA 80328<br>(606) 123-4567</dd>
+        </dl>
+      </div>
+
+      <div class="dl-group dl-group-full clearfix">
+        <dl>
+          <dt>Insurer</dt>
+          <dd>{{ patient.insurer }}</dd>
+        </dl>
+        <dl>
+          <dt>Eligibility</dt>
+          <dd>1/01/2011</dd>
+        </dl>
+      </div>
+
+      <div class="dl-group dl-group-stacked clearfix">
+        <dl>
+            <dt>ID</dt>
+            <dd>588620{{ patient.id }}</dd>
+        </dl>
+      </div>
+
+    </div>
+
+  </aside>
+
+</section>

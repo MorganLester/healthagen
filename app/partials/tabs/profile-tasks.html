@@ -1,0 +1,63 @@
+<h2 class="h2-messages">Today's Tasks <a href="#/tasks">view all</a></h2>
+
+<div class="message-pane clearfix">
+
+    <div class="well message-encounter pull-left clearfix">
+
+        <img src="bootflat/img/icon-triangle.png" width="12" height="31" class="left-triangle">
+        <img src="bootflat/img/icon-triangle.png" width="12" height="31" class="right-triangle">
+
+        <div class="pull-left col-md-9">
+
+            <div class="dl-group clearfix">
+            
+                <h3 ng-class="{ 'hotspot' : patient.hotspot === true }" class="h3-push">{{ patient.tasks.type }}</h3>
+
+                <dl>
+                    <dt>Time</dt>
+                    <dd>{{ patient.tasks.time }}</dd>
+                </dl>
+                <dl>
+                    <dt>Status</dt>
+                    <dd>{{ patient.tasks.status }}</dd>
+                </dl>
+                <dl>
+                    <dt>Primary Physician</dt>
+                    <dd>{{ patient.physician | doctorName }}</dd>
+                </dl>
+                <dl>
+                    <dt>Program</dt>
+                    <dd>Care Program</dd>
+                </dl>
+
+            </div>
+
+            <p>Laoreet sit amet cursus sit amet, dictum sit amet justo donec enim diam, vulputate ut pharetra sit amet, aliquam. Euismod elementum nisi, quis eleifend quam adipiscing vitae proin sagittis, nisl rhoncus mattis rhoncus... <a>More</a></p>
+
+        </div>
+
+        <div class="pull-right col-md-3">
+
+            <div class="dl-group dl-group-full clearfix">
+                <dl class="pull-left">
+                    <dt>Playlist</dt>
+                    <dd>{{ patient.playlist.title }}</dd> 
+                </dl>
+            </div>
+
+            <button type="button" class="btn btn-flat pull-left" ng-show="patient.tasks.step">
+                <ng-pluralize count="patient.tasks.step"
+                     when="{'0': 'None',
+                         '1': '1st Step',
+                         '2': '2nd Step',
+                         '3': '3rd Step',
+                         'other': '{}th Step'}">
+                </ng-pluralize>
+            </button>
+        
+            <div class="pull-right" ng-show="patient.tasks.step">
+              <button type="button" class="btn btn-default arrow-right">Start</button>
+            </div>
+        </div>  
+    </div>
+</div> 

@@ -1,0 +1,153 @@
+header[role="fixed-header"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 14.4rem 0 6.2rem;
+  height: 70px;
+  display: table;
+  z-index: 900;
+  background: #333;
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.25);
+     -moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.25);
+          box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.25);
+
+  @include responsive(tablet-landscape) {
+    .form-search {
+      display: none;
+    }
+  }
+
+  &.table {
+    margin-bottom: 0;
+  }
+
+  h1 {
+    color: #fff;
+    font-weight: 300;
+  }
+
+  .logo {
+    position: absolute;
+    top: 50%;
+    right: 3.4rem;
+    -webkit-transform: translateY(-50%);
+       -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+
+    @include responsive(tablet-landscape) {
+      right: 1.5rem;
+    }
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 50%;
+    left: 3.4em;
+    padding: 0;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    text-align: center;
+    background: #333;
+    -webkit-transform: translateY(-50%);
+       -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%); 
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 25px;
+      height: 4px;
+      -webkit-box-shadow: 0 4px #a1a1a1, 0 12px #a1a1a1, 0 20px #a1a1a1;
+         -moz-box-shadow: 0 4px #a1a1a1, 0 12px #a1a1a1, 0 20px #a1a1a1;
+              box-shadow: 0 4px #a1a1a1, 0 12px #a1a1a1, 0 20px #a1a1a1;
+    }
+
+    @include responsive(tablet-landscape) {
+      left: 1.5rem;
+    }
+
+    &.active {
+      .icon-bar { background-color: #fff; }
+    }
+
+    .icon-bar {
+      margin: 0 auto;
+      display: block;
+      width: 22px;
+      height: 3px;
+      background-color: #42659D;
+
+      + .icon-bar {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .form-search input {
+    padding: 6px 12px 6px 42px;
+    width: 400px;
+    height: 40px;
+    color: #fff;
+    font-weight: 300;
+    background-color: #444;
+    background-image: url(../img/icon-search.png);
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    background-size: 22px 22px;
+    border: none;
+    border-radius: 0;
+  }
+
+  .nav-pills {
+    text-align: right;
+
+    .btn-link {
+      padding: .2rem .8rem;
+      color: #aaa;
+      font-size: 1rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .badge {
+      font-weight: normal;
+    }
+
+    .btn-nav-messages {
+      .badge {
+        color: #333;
+        background-color: $yellowDark;
+      }
+    }
+
+    .btn-nav-watchlist {
+      .badge {
+        color: #333;
+        background-color: $yellowDark;
+      }
+    }
+  }
+
+  .nav-search {
+    display: none;
+
+    @include responsive(tablet-landscape) {
+      display: inline-block;
+    }
+  }
+
+  .dropdown-menu {
+    text-align: left;
+  }
+}

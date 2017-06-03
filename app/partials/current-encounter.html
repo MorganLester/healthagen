@@ -1,0 +1,333 @@
+
+<div class="encounter">
+
+<div class="bottom-panel-inner">
+
+  <header>   
+
+    <h1>Current Encounter</h1>
+
+    <div id="clock-timer" class="clearfix">
+
+      <timer interval="1000">{{hhours}}:{{mminutes}}:{{sseconds}}</timer>
+
+      <a onclick="stopResumeTimer('clock-timer', this)" class="pull-right">Stop</a>
+
+    </div>
+
+    <a class="minimize caret-bottom"></a>
+
+  </header>
+
+  <footer class="clearfix">
+
+  <tabset class="tabset" justified="true">
+
+    <tab heading="Assessments" active="tab.active" class="clearfix">
+
+      <div class="col-md-6 pull-left">
+
+        <h3>Recommended Assessments</h3>
+
+        <ul class="recommended-assessments">
+          <li ng-repeat="rec in recs">
+            <h4><a>{{ rec.title }}</a></h4>
+
+            <div class="clearfix">
+              <div class="pull-left">
+                <img ph-img="400x30">
+              </div>
+
+              <div class="pull-right">
+
+                <div class="dl-group dl-group-full clearfix">
+                    <dl>
+                        <dt>Encounter</dt>
+                        <dd>June 7th, 2013</dd>
+                    </dl>
+                </div>
+
+              </div>
+          </li>
+        </ul>
+
+        <a>See more Recommendations...</a>
+
+      </div>
+
+      <div class="col-md-6 pull-right">
+
+        <h3>All Assessments</h3>
+
+          <div class="tasks-filters clearfix">
+
+            <div class="input-group">
+                        
+                <!-- <tags-input ng-model="tags" class="search-icon-grey"></tags-input> -->
+                
+                <input type="text" class="form-control" ng-model="search" placeholder="Find assessment...">
+
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default btn-filter arrow-right">Filter</button>
+                </div>
+
+            </div>
+          </div>
+
+          <div ng-grid="gridAllAssessments"></div>  
+
+      </div>
+
+    </tab>
+
+    <tab heading="Problems &amp; Playlists" class="clearfix">
+
+      <div class="col-md-6 pull-left">
+
+        <div class="selected-assessment">
+
+          <h3><a>Diabetes &ndash; Adult</a></h3>
+
+          <img ph-img="400x30">
+
+        </div>
+
+        <h3>Current Question</h3>
+
+        <form class="box">
+
+            <h4>Do you know your most recent blood pressure? <small><a>More Information</a></small></h4>
+
+            <div class="btn-group" ng-model="button.pressure" bs-radio-group>
+              <label class="btn btn-primary"><input type="radio" class="btn btn-primary" value="Yes" ng-model="formData.knowPressure"> Yes</label>
+              <label class="btn btn-primary"><input type="radio" class="btn btn-primary" value="No" ng-model="formData.knowPressure"> No</label>
+            </div>
+            
+            <div ng-if="button.pressure" class="animate-if">
+              <p>When was it last checked?</p>
+
+              <div class="btn-group" ng-model="button.checked" bs-radio-group>
+                <label class="btn btn-primary"><input type="radio" class="btn btn-primary" value="0-3 months" ng-model="formData.lastChecked"> 0 - 3</label>
+                <label class="btn btn-primary"><input type="radio" class="btn btn-primary" value="4-6 months" ng-model="formData.lastChecked"> 4 - 6</label>
+                <label class="btn btn-primary"><input type="radio" class="btn btn-primary" value="7-12 months" ng-model="formData.lastChecked"> 7 - 12</label>
+                <label class="btn btn-primary"><input type="radio" class="btn btn-primary" value="Unknown" ng-model="formData.lastChecked"> Unknown</label>
+              </div>
+
+              <label class="btn btn-link">Months</label>
+            </div>
+
+            <div ng-if="button.checked && button.pressure" class="animate-if">
+
+              <p>What is your blood pressure?</p>
+
+              <div class="form-inline" role="form">
+                <div class="form-group">
+                  <input type="text" class="form-control input-systolic" placeholder="systolic">
+                </div>
+                &ndash;
+                <div class="form-group">
+                  <input type="text" class="form-control input-diastolic" placeholder="diastolic">
+                </div>
+                on 
+                <div class="form-group input-calendar">
+                  <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                      <button class="btn btn-primary" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <button type="button" class="btn btn-default btn-white btn-submit" ng-model="checkModel.submit" btn-checkbox>Submit</button>
+
+        </form>
+
+        <div class="find-questions">
+
+          <h3>Find Questions</h3>
+
+          <div class="strong-highlight">
+            <input type="text" ng-model="selected" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control">
+          </div>
+
+        </div>
+
+        <div class="next-questions">
+
+          <h3>Next Questions <a class="btn btn-primary">Refresh Questions</a></h3>
+
+          <ul>
+            <li><a>What do you do to check your <strong>blood sugar</strong>?</a></li>
+            <li><a>Are you experieencing <strong>swelling</strong> or redeness in your <strong>limbs</strong>?</a></li>
+            <li><a>Do you have <strong>trouble sleeping</strong>? Sleep Apnea.</a></li>
+            <li><a>What is your <strong>workout</strong> regimen?</a></li>
+            <li><a>Do you have a <strong>family</strong> history of <strong>Diabetes</strong>?</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="col-md-6 pull-right">
+
+        <h3>Find Other Assessments</h3>
+
+        <div class="tasks-filters clearfix">
+
+            <div class="input-group">
+                        
+                <!-- <tags-input ng-model="tags" class="search-icon-grey"></tags-input> -->
+                
+                <input type="text" class="form-control" ng-model="search" placeholder="Find assessment...">
+
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default btn-filter arrow-right">Filter</button>
+                </div>
+
+            </div>
+          </div>
+
+          <h4>Recommended Assessments</h4>
+
+          <div ng-grid="gridAllAssessments"></div>  
+
+          <p><a>See more Assessments</a></p>
+
+      </div>
+      
+    </tab>
+
+  </tabset>
+
+</footer>
+
+    <!--
+
+    <article class="clearfix">
+
+      <header class="col-md-6 pull-left">
+
+        <h2>Diabetes &ndash; Adult</h2>
+
+        <img ph-img="400x60">
+
+        <form>
+
+          <p>{{ button }}</p>  
+
+          <h3>Current Question</h3>
+
+            <h4>Do you know your most recent blood pressure? <small><a>More Information</a></small></h4>
+
+            <div class="btn-group" ng-model="button.pressure" bs-radio-group>
+              <label class="btn btn-primary"><input type="radio" class="btn btn-primary" value="Yes" ng-model="formData.knowPressure"> Yes</label>
+              <label class="btn btn-primary"><input type="radio" class="btn btn-primary" value="No" ng-model="formData.knowPressure"> No</label>
+            </div>
+            
+            <div ng-if="button.pressure" class="animate-if">
+              <p>When was it last checked?</p>
+
+              <div class="btn-group" ng-model="button.checked" bs-radio-group>
+                <label class="btn btn-primary"><input type="radio" class="btn btn-primary" value="0-3 months" ng-model="formData.lastChecked"> 0 - 3</label>
+                <label class="btn btn-primary"><input type="radio" class="btn btn-primary" value="4-6 months" ng-model="formData.lastChecked"> 4 - 6</label>
+                <label class="btn btn-primary"><input type="radio" class="btn btn-primary" value="7-12 months" ng-model="formData.lastChecked"> 7 - 12</label>
+                <label class="btn btn-primary"><input type="radio" class="btn btn-primary" value="Unknown" ng-model="formData.lastChecked"> Unknown</label>
+              </div>
+
+              <label class="btn btn-link">Months</label>
+            </div>
+
+            <div ng-if="button.checked && button.pressure" class="animate-if">
+
+              <p>What is your blood pressure?</p>
+
+              <div class="form-inline" role="form">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="systoic">
+                </div>
+                &ndash;
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="diastolic">
+                </div>
+                on 
+                <div class="form-group">
+                  <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                      <button class="btn btn-primary" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </form>
+
+         
+
+          <button type="button" class="btn btn-primary" ng-model="checkModel.submit" btn-checkbox>Submit</button>
+
+        <h3>Find Questions</h3>
+
+        <div class="strong-highlight">
+          <input type="text" ng-model="selected" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control">
+        </div>
+
+        <h3>Next Questions <a class="btn btn-primary">Refresh Questions</a></h3>
+
+        <ul>
+          <li><a>What do you do to check your <strong>blood sugar</strong>?</a></li>
+          <li><a>Are you experieencing <strong>swelling</strong> or redeness in your <strong>limbs</strong>?</a></li>
+          <li><a>Do you have <strong>trouble sleeping</strong>? Sleep Apnea.</a></li>
+          <li><a>What is your <strong>workout</strong> regimen?</a></li>
+          <li><a>Do you have a <strong>family</strong> history of <strong>Diabetes</strong>?</a></li>
+        </ul>
+
+      </header>
+
+      <footer class="col-md-6 pull-right">
+
+        <h3>Find Other Assessments</h3>
+
+
+        <input type="text" class="form-control" ng-model="recA2" placeholder="Search Assessments...">
+
+        <h4>Recommended Assessments</h4>
+
+        <ul>
+          <li ng-repeat="rec in recs | filter:recA2">
+            <h4><a>{{ rec.title }}</a></h4>
+
+            <div class="clearfix">
+              <div class="pull-left">
+                <img ph-img="300x60">
+              </div>
+
+              <div class="pull-right">
+
+                <div class="dl-group dl-group-full clearfix">
+                    <dl>
+                        <dt>Encounter</dt>
+                        <dd>June 7th, 2013</dd>
+                    </dl>
+                </div>
+
+              </div>
+          </li>
+
+        </ul>
+
+      </footer>
+
+    </article>
+
+  -->
+
+</div>
+
+</div>
+

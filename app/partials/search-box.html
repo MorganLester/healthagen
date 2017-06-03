@@ -1,0 +1,18 @@
+<div class="search-box clearfix">
+   
+    <div class="tag-box pull-left clearfix">
+        <div class="tag-input pull-left">
+            <span ng-repeat="($index, manager) in managers" class="tags" ng-click="removeManager($index, manager)"><strong>Care Manager: </strong>{{ manager }}</span>
+            <span ng-repeat="($index, doctor) in doctors" class="tags" ng-click="removeDoctor($index, doctor)"><strong>Physician: </strong>{{ doctor }}</span>
+            <span ng-repeat="($index, gender) in genders" class="tags" ng-click="removeGender($index, gender)"><strong>Gender: </strong>{{ gender }}</span>
+        </div>
+        <input class="pull-left" type="text" ng-model="$parent.search" placeholder="{{ placeholder }}">
+    </div>
+
+    <div class="btn-filter-group">
+        <button type="button" class="btn btn-default btn-filter" data-template="app/partials/panels/filter.html" bs-aside="aside" data-container=".page-wrapper">Filter</button>
+        <button type="button" class="btn btn-default btn-sort">Sort</button>
+        <button type="button" class="btn btn-default btn-views">Views</button>
+    </div>
+
+</div>

@@ -1,0 +1,75 @@
+
+<div class="profile-card">
+
+    <div class="profile-border clearfix" ng-controller="ProfileController">
+
+        <header ng-class="">
+
+            <div class="dl-group-top">
+
+                <h1 ng-class="{ 'hotspot' : patient.hotspot === true, 'male' : patient.gender === 'Male', 'female' : patient.gender === 'Female' }">{{ patient.name | displaySurname }}</h1>
+
+                <div class="top-info">
+                    <span class="phone">(212) 123-4567</span>
+                   
+                    <dl>
+                        <dt>Age</dt>
+                        <dd>{{ patient.age }}</dd>
+                    </dl>
+                    <dl>
+                        <dt>DOB</dt>
+                        <dd>05/21/{{ 2014 - patient.age }}</dd>
+                    </dl>
+                </div>
+
+            </div>
+
+        </header>
+
+        <div ng-model="tabs.activeTab" bs-tabs="tabs"></div>
+
+        <div class="profile-affix" ng-class="{ 'hotspot' : patient.hotspot === true, 'male' : patient.gender === 'Male', 'female' : patient.gender === 'Female' }" stick>
+
+           <h1>{{ patient.name | displaySurname | characters:65 }}</h1>
+
+            <div class="top-info">
+                <span class="phone">(212) 123-4567</span>
+               
+                <dl>
+                    <dt>Age</dt>
+                    <dd>{{ patient.age }}</dd>
+                </dl>
+                <dl>
+                    <dt>DOB</dt>
+                    <dd>05/21/{{ 2014 - patient.age }}</dd>
+                </dl>
+            </div>
+
+            <ul class="nav-tabs" ng-model="tabs.activeTab" bs-radio-group>
+                <li>
+                    <label ng-click="gotoTop()">
+                        <input type="radio" class="btn btn-default" value="0">
+                    </label>
+                </li>
+                <li>
+                    <label ng-click="gotoTop()">
+                        <input type="radio" class="btn btn-default" value="1">                 
+                    </label>
+                </li>
+                <li>
+                    <label ng-click="gotoTop()">
+                        <input type="radio" class="btn btn-default" value="2">                   
+                    </label>
+                </li>
+                <li>
+                    <label ng-click="gotoTop()">
+                        <input type="radio" class="btn btn-default" value="3">                    
+                    </label>
+                </li>
+                <span class="badge-annotation badge-profile-1">1</span>
+            </ul>
+
+        </div>
+
+    </div>
+</div>

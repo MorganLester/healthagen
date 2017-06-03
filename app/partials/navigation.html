@@ -1,0 +1,101 @@
+
+    <div class="aside-navigation-inner" data-ng-controller="NavbarController">
+    
+        <!-- collapsed navigation -->
+        <!-- reposting all of the navigation items instead of refactoring for mobile (less headache) -->
+        <ul class="aside-tablet" ng-model="open" ng-init="open=false" ng-click="open = !open">
+          <li>
+            <a>
+              <h4>{{ title }}</h4>
+            </a>
+          </li>
+            <li class="nav-mini-history" ng-if="open" data-ng-class="{'active':getClass('/patient-history')}">
+                <a ng-href="#/patient-history/{{ patient.id }}">
+                    <h4>Patient History</h4>
+                </a>
+            </li>
+            <li class="nav-mini-conditions" ng-if="open" data-ng-class="{'active':getClass('/conditions-diagnoses')}">
+                <a ng-href="#/conditions-diagnoses/{{ patient.id }}">
+                    <h4>Conditions &amp; Diagnoses</h4>
+                </a>
+            </li>
+            <li class="nav-mini-meds" ng-if="open" data-ng-class="{'active':getClass('/meds-allergies')}">
+                <a ng-href="#/meds-allergies/{{ patient.id }}">
+                    <h4>Meds &amp; Allergies</h4>
+                </a>
+            </li>
+            <li class="nav-mini-goals" ng-if="open" data-ng-class="{'active':getClass('/goals-playlists')}">
+                <a ng-href="#/goals-playlists/{{ patient.id }}" class="hotspot">
+                    <h4>Goals &amp; Playlists</h4>  
+                </a></li>
+            <li class="nav-mini-vitals" ng-if="open" data-ng-class="{'active':getClass('/vitals-labs')}">
+                <a ng-href="#/vitals-labs/{{ patient.id }}" class="hotspot">
+                    <h4>Vitals &amp; Labs</h4>
+                </a>
+            </li>
+            <li class="nav-mini-assessments" ng-if="open" data-ng-class="{'active':getClass('/assessments-problems')}">
+                <a ng-href="#/assessments/{{ patient.id }}">
+                    <h4>Assessments</h4>
+                </a>
+            </li>
+            <li class="nav-mini-procedures" ng-if="open" data-ng-class="{'active':getClass('/procedures-immunizations')}">
+                <a ng-href="#/procedures-immunizations/{{ patient.id }}" class="hotspot">
+                    <h4>Procedures &amp; Immunizations</h4>
+                </a>
+            </li>
+            <li class="nav-mini-docs" ng-if="open" data-ng-class="{'active':getClass('/docs')}">
+                <a>
+                    <h4>Docs</h4>   
+                </a>
+            </li>
+        </ul>
+        <!-- // .aside-tablet -->
+
+        <!-- desktop navigation -->
+        <ul class="aside-list">
+            <li class="nav-history" data-ng-class="{'active':getClass('/patient-history'), 'hotspot':historyNav}">
+                <a ng-href="#/patient-history/{{ patient.id }}">
+                    <h4>Patient History</h4>
+                </a>
+            </li>
+            <li class="nav-conditions" data-ng-class="{'active':getClass('/conditions-diagnoses'), 'hotspot':(conditionsNav || diagnosesNav)}">
+                <a ng-href="#/conditions-diagnoses/{{ patient.id }}">
+                    <h4>Conditions &amp;<br>Diagnoses</h4>
+                </a>
+            </li>
+            <li class="nav-meds" data-ng-class="{'active':getClass('/meds-allergies'), 'hotspot':(medsNav || allergiesNav)}">
+                <a ng-href="#/meds-allergies/{{ patient.id }}">
+                    <h4>Meds &amp; Allergies</h4>   
+                </a>
+            </li>
+            <li class="nav-goals" data-ng-class="{'active':getClass('/goals-playlists'), 'hotspot':(goalsNav || playlistsNav)}">
+                <a ng-href="#/goals-playlists/{{ patient.id }}">
+                    <h4>Goals &amp; Playlists</h4>
+                </a></li>
+            <li class="nav-vitals" data-ng-class="{'active':getClass('/vitals-labs'), 'hotspot':(vitalsNav || labsNav)}">
+                <a ng-href="#/vitals-labs/{{ patient.id }}">
+                    <h4>Vitals &amp; Labs</h4>
+                </a></li>
+            <li class="nav-assessments" data-ng-class="{'active':getClass('/assessments'), 'hotspot':assessmentsNav}">
+                <a ng-href="#/assessments/{{ patient.id }}">
+                    <h4>Assessments</h4>
+                </a></li>
+            <li class="nav-procedures" data-ng-class="{'active':getClass('/procedures-immunizations'), 'hotspot':(proceduresNav || immunizationsNav)}">
+                <a ng-href="#/procedures-immunizations/{{ patient.id }}">
+                    <h4>Procedures &amp;<br>Immunizations</h4>
+                </a>
+            </li>
+            <li class="nav-docs" data-ng-class="{'active':getClass('/docs'), 'hotspot':docsNav}">
+                <a>
+                    <h4>Docs</h4>
+                </a></li>
+        </ul>
+
+        <!-- 
+        <div class="grey-bg"></div>
+        <div class="shadow"></div>
+        -->
+
+    </div>
+
+   

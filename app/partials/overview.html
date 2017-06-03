@@ -1,0 +1,135 @@
+<div class="section-header section-header-full clearfix">
+
+    <h1 class="pull-left">Today's Hotspots</h1>
+
+</div>
+
+<section class="section-overview section-content-left">
+
+    <div class="clearfix">
+
+        <div class="overview-tiles col-md-9 col-sm-12 col-xs-12 pull-left">
+
+            <ul class="clearfix">
+
+                <li id="tile-{{ $index }}" class="tiles" ng-repeat="patient in patients" ng-show="patient.hotspot" load-dispatcher>
+
+                    <a>
+
+                        <div class="fold-zone" ng-click="fold($index)"></div>
+
+                        <div class="tile-inner eq-height">
+                            
+                            <img src="bootflat/img/hotspot-folded.png" class="folded">
+                            <img src="bootflat/img/base-layer.png" class="base">
+                            <img src="bootflat/img/hotspot-unfolded.png" class="unfolded">
+
+                            <div class="tile-content" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-all-patients.html" bs-aside="aside" data-container=".page-wrapper">
+                      
+                                <h2>{{ patient.name | displayName | characters: 50 }}</h2>
+
+                                <div class="dl-group">
+                                    <dl>
+                                        <dt>Primary Physician</dt>
+                                        <dd>Dr. {{ patient.physician | doctorName }}</dd> 
+                                    </dl>
+                                </div>
+
+                                <div class="dl-group dl-group-full">
+                                    <dl class="col-1">
+                                        <dt>Diagnoses</dt>
+                                        <dd>
+                                            <div ng-repeat="diagnosis in patient.diagnoses">
+                                                {{ diagnosis }}
+                                            </div>
+                                        </dd> 
+                                    </dl>
+
+                                    <dl class="col-2">
+                                        <dt>Age</dt>
+                                        <dd>{{ patient.age }}</dd> 
+                                    </dl>
+
+                                    <dl class="col-3">
+                                        <dt>Gender</dt>
+                                        <dd>{{ patient.gender }}</dd> 
+                                    </dl>
+                                </div>
+
+                                <div class="well">
+                                    <p>
+                                        <strong>{{ patient.tasks.type }}</strong>
+                                        <br>
+                                        {{ patient.tasks.time }}
+                                    </p>
+                                </div>  
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </li>
+            </ul>
+
+        </div>
+
+        <aside class="aside-overview col-md-3 col-sm-12 col-xs-12 pull-right">
+
+            <h3>Tasks <a href="#/tasks" class="btn btn-default">View All</a></h3>
+
+            <div class="clearfix">
+
+                <div class="col-landscape col-1">
+                    <h4>Today's</h4>
+                    <ul>
+                        <li ng-repeat="patient in today = (patients | filter:{tasks.time: 'Today'})" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-all-patients.html" bs-aside="aside" data-container=".page-wrapper">
+                            <a>
+                                <strong>{{ patient.tasks.type }}</strong>
+                                {{ patient.name | displayName }}
+                            </a>
+                        </li>
+                        <li ng-show="today.length < 1" class="no-tasks">
+                            No hotspots today
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-landscape col-2">
+                    <h4>Tomorrow's</h4>
+                    <ul>
+                       <li ng-repeat="patient in tomorrow = (patients | filter:{tasks.time: 'Tomorrow'})" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-all-patients.html" bs-aside="aside" data-container=".page-wrapper">
+                            <a>
+                                <strong>{{ patient.tasks.type }}</strong>
+                                {{ patient.name | displayName }}
+                            </a>
+                        </li>
+                        <li ng-show="tomorrow.length < 1" class="no-tasks">
+                            No hotspots tomorrow
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-landscape col-3">
+                    <h4>Upcoming</h4>
+                    <ul>
+                        <li ng-repeat="patient in remainder = (patients | filter:{tasks.time: '2 Days from now' || 'Next Week'})" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/module-all-patients.html" bs-aside="aside" data-container=".page-wrapper">
+                            <a>
+                                <strong>{{ patient.tasks.type }}</strong>
+                                {{ patient.name | displayName }}
+                            </a>
+                        </li> 
+                        <li ng-show="remainder.length < 1" class="no-tasks">
+                            No upcoming hotspots
+                        </li>
+                    </ul>
+                </div>
+            </div>
+             
+        </aside>
+    </div>
+   
+</section>
+
+

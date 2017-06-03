@@ -1,0 +1,65 @@
+<section class="section-cmo section-content">
+
+  <!--
+    <div class="row">
+      <div class="col-md-12">
+        <div class="btn-group" opt-kind ok-key="filter" >
+          <button type='button' class='btn btn-default active' ok-sel="*">Show All</button>
+          <button type='button' class='btn btn-default' ok-sel=".up">Up</button>
+          <button type='button' class='btn btn-default' ok-sel=".down">Down</button>
+        </div>
+      </div>
+    </div>
+  -->
+
+
+    <h3>Hotspots ({{ ( tiles | filter:{ hotspot: 'true' } ).length }})</h3>
+
+ 
+    <ul class="isotope isotope-cmo grid-tile clearfix"> <!--  isotope-container -->
+
+      <li ng-repeat="tile in tiles | filter:{ hotspot: 'true' }" class="tile-lg hotspot dir-{{ tile.direction }}">
+
+        <h2>{{ tile.title }} <span ng-show="tile.abb" style="white-space: nowrap;">({{ tile.abb }})</span></h2>
+
+        <div class="dl-group clearfix {{ tile.direction }}">
+
+          <dl>
+            <dt>Current Compliance</dt>
+            <dd>{{ tile.compliance }}<sup>%</sup></dd>
+          </dl>
+
+          <dl>
+            <dt>Below Benchmark</dt>
+            <dd>{{ tile.benchmark }}<sup>%</sup></dd>
+          </dl>
+
+        </div>
+
+        <img src="bootflat/img/graph-hotspot.png">
+
+        <p>AETNA: LAST UPDATE 3/12/14 3:00am</p>
+
+      </li>
+
+    </ul>
+
+    <h3>Within Benchmark ({{ ( tiles | filter:{hotspot: '!true'} ).length }})</h3>
+
+    <ul class="isotope isotope-cmo grid-tile clearfix" ng-cloak>
+
+      <li ng-repeat="tile in tiles | filter:{ hotspot: '!true' }" class="tile-sm">
+
+        
+
+          <h2>{{ tile.title }} <span ng-show="tile.abb">({{ tile.abb }})</span></h2>
+
+      
+
+      </li>
+
+    </ul>
+
+  </div>
+
+</section>

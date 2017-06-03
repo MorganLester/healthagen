@@ -1,0 +1,164 @@
+   
+
+<footer class="clearfix">
+
+  <div class="selected-assessment clearfix">
+
+    <h2>Diabetes &ndash; Adult <span class="btn btn-link pull-right">58% Complete</span></h2>
+
+    <ul class="bar bar-diabetes">
+      <li id="bar-{{ n }}" ng-class="{'bar-done': n <= 28}" ng-repeat="n in [50] | range"></li> 
+    </ul>
+
+  </div>
+
+  <div class="col-md-6 pull-left">
+
+    <div class="well current-question hotbox" ng-show="current">
+
+      <div ng-hide="closed">
+
+        <h3>Current Question</h3>
+
+        <form>
+
+          <h4>Do you know your most recent blood pressure? <small><a class="btn-link-white">More Information</a></small></h4>
+
+          <div class="btn-group" ng-model="button.pressure" bs-radio-group>
+            <label class="btn btn-default btn-white"><input type="radio" class="btn btn-default btn-white" value="Yes" ng-model="formData.knowPressure"> Yes</label>
+            <label class="btn btn-default btn-white" ng-click="setNo()"><input type="radio" class="btn btn-default btn-white" value="No" ng-model="formData.knowPressure"> No  <span class="question-no" ng-show="button.pressure == 'No'"><strong>Problem</strong> Patient does not know their blood pressure.</span></label> 
+          </div>
+
+          <div class="optional-message" ng-show="button.pressure == 'No'">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Enter Optional Message about this problem...">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-white">Submit</button>
+              </span>
+            </div>
+          </div>
+          
+          <div ng-if="button.pressure" class="animate-if clearfix">
+            <p>When was it last checked?</p>
+
+            <div class="btn-group" ng-model="button.checked" bs-radio-group>
+              <label class="btn btn-default btn-white"><input type="radio" class="btn btn-default btn-white" value="0-3 months" ng-model="formData.lastChecked"> 0 - 3</label>
+              <label class="btn btn-default btn-white"><input type="radio" class="btn btn-default btn-white" value="4-6 months" ng-model="formData.lastChecked"> 4 - 6</label>
+              <label class="btn btn-default btn-white"><input type="radio" class="btn btn-default btn-white" value="7-12 months" ng-model="formData.lastChecked"> 7 - 12</label>
+              <label class="btn btn-default btn-white"><input type="radio" class="btn btn-default btn-white" value="Unknown" ng-model="formData.lastChecked"> Unknown</label>
+            </div>
+
+            <label class="btn btn-link btn-link-white">Months</label>
+          </div>
+
+          <div ng-if="button.checked && button.pressure" class="animate-if">
+
+            <p>What is your blood pressure?</p>
+
+            <div class="form-inline clearfix" role="form">
+              <div class="form-group">
+                <input type="text" class="form-control input-systolic" placeholder="sys">
+              </div>
+              &mdash;
+              <div class="form-group">
+                <input type="text" class="form-control input-diastolic" placeholder="dia">
+              </div>
+              on 
+              <div class="form-group">
+                <input type="text" class="form-control input-calendar" ng-model="dt" bs-datepicker ng-click="open($event)">
+              </div>
+              <div class="form-group pull-right">
+                <button ng-if="button.checked && button.pressure" type="button" class="btn btn-default btn-white btn-submit animate-if" ng-model="checkModel.submit" btn-checkbox ng-click="currentDone()">Submit</button>
+              </div>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+      <div ng-show="closed">
+
+        <h3 class="answered">Question Answered <button type="button" class="btn btn-default btn-white pull-right" ng-click="undo()">Undo</button></h3>
+
+      </div>
+
+    </div>
+
+    <div class="well find-question hotbox">
+
+      <h3>Find Question</h3>
+
+      <div class="strong-highlight clearfix">
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="selected" typeahead="state for state in states" placeholder="Start typing to find a question...">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default btn-white" ng-click="currentOpen()">Browse</button>
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="next-questions">
+
+      <h3>Next Questions <button type="button" class="btn btn-default">Refresh Questions</button></h3>
+
+      <ul>
+        <li ng-repeat="ques in next">
+          <a ng-bind-html="ques"></a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-6 pull-right">
+
+    <div class="well clearfix">       
+
+      <h3>Find Other Assessments</h3>
+               
+      <div class="input-group">     
+        <input type="text" class="form-control" ng-model="search" placeholder="Search assessments...">
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default">Browse</button>
+        </span>
+      </div>
+   
+    </div>
+        
+    <div class="well">
+
+      <h3>Recommended Assessments</h3>
+
+      <ul class="assessment-list">
+        <li>
+          <h4><a class="hotspot">Chronic Kidney Disease</a></h4>
+          <ul class="bar">
+            <li id="bar-{{ n }}" ng-class="{'bar-done': n <= 27}" ng-repeat="n in [50] | range"></li> 
+          </ul>
+        </li>
+        <li>
+          <h4><a class="hotspot">Chronic Obstructive Pulmonary Disease (COPD)</a></h4>
+          <ul class="bar">
+            <li id="bar-tied-{{ n }}" ng-class="{'bar-done': n <= 39}" ng-repeat="n in [50] | range"></li> 
+          </ul>
+        </li>        
+        <li>
+          <h4><a>Hypertension &ndash; Vascular Condition</a></h4>
+          <ul class="bar">
+            <li id="bar-{{ n }}" ng-class="{'bar-done': n <= 18}" ng-repeat="n in [50] | range"></li> 
+          </ul>
+        </li> 
+      </ul>
+
+      <p><a>See more Assessments...</a></p>
+
+    </div>
+
+  </div>
+
+</footer>

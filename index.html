@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="patientsApp">
+<head>
+  <title ng-controller="titleController" ng-cloak>{{ title }} | Healthagen</title>
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'> 
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootflat/css/bootstrap-additions.min.css">
+  <link rel="stylesheet" href="bootflat/css/angular-motion.css">
+  <link rel="stylesheet" href="bootflat/css/bootflat.css">
+  <script src="js/modernizr.custom.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+</head>
+
+<body ng-controller="bodyController" class="body-{{ bodyClass }}">
+
+    <div class="page-wrapper" data-style="">
+      
+      <div class="mp-pusher" id="mp-pusher"> 
+
+        <nav class="menu nav-left">
+          <div class="menu-inner" ng-controller="MenuController">
+            <h3><img src="bootflat/img/icon-female.png" width="35" height="35"> Miriam Makeba</h3>
+            <ul>
+              <li><a href="#/overview" ng-click="closeMenu()">Overview</a></li>
+              <li><a href="#/all-patients" ng-click="closeMenu()">Patients</a></li>
+              <li><a href="#/tasks" ng-click="closeMenu()">Tasks</a></li>
+              <li><a>Success</a></li>
+            </ul>
+            <ul>
+              <li><a href="#/overview" ng-click="annotate()">Annotations</a></li>
+              <li><a href="#/live-style" ng-click="close()">Live Style</a></li>
+            </ul>
+            <ul class="logout">
+              <li><a>Logout</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <div id="container" class="scroller">
+
+          <header class="table clearfix" role="fixed-header" ng-controller="HeaderController">
+
+            <a class="hamburger" ng-click="hamburger()"></a>
+
+            <form class="table-cell form-search" role="search">
+              <input type="text" class="form-control">
+            </form>
+
+            <div class="table-cell nav-pills">
+              <button type="button" class="nav-search btn btn-link">Search</button>
+              <a class="btn btn-link arrow-right" data-template="app/partials/panels/new.html" bs-aside="aside" data-container=".page-wrapper">New</a>
+              <a class="btn-nav-messages btn btn-link" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/messages.html" bs-aside="aside" data-container=".page-wrapper" ng-click="bodyClass('messages')">Messages <span class="badge">2</span></a>
+              <a class="btn-nav-watchlist btn btn-link" data-placement="bottom" data-animation="am-slide-bottom" data-template="app/partials/panels/watchlist.html" bs-aside="aside" data-container=".page-wrapper">Watchlist</a>
+            </div> 
+
+            <a class="logo"><img src="bootflat/img/EastCoastHealth.png" width="159" height="30"></a>
+
+          </header>
+             
+          <a id="top"></a>
+          <div ng-view></div>  
+
+        </div>
+
+      </div>
+
+      <div class="mp-overlay" ng-click="closeOverlay()" ng-controller="OverlayController"></div>
+
+    </div>
+
+    <div data-ng-include="'app/partials/annotations.html'"></div>
+
+    <!-- the kitchen sink : mostly unminified for development -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular-touch.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular-animate.js"></script>
+    <script src="//code.angularjs.org/1.2.16/angular-sanitize.min.js" data-semver="1.2.16"></script>
+
+    <script src="js/angular-strap.js"></script>
+    <script src="js/angular-strap.tpl.min.js"></script>
+    
+    <script src="Scripts/angular-route.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src="js/ui-utils.min.js"></script>
+
+    <script src="js/ng-grid-2.0.7.debug.js"></script>
+    <script src="js/ng-table.js"></script> 
+    <script src="js/ng-tags-input.js"></script>
+    <script src="js/checklist-model.js"></script>
+    <script src="js/truncate.js"></script>
+    <script src="js/placeholders-0.0.1-SNAPSHOT.min.js"></script>
+    <script src="js/angular-timer.min.js"></script>
+    <script src="js/jquery.matchHeight.js"></script>
+    <script src="js/ngRange.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/controllers/controllers.js"></script>
+    <script src="app/services/customersService.js"></script>
+    <script src="app/directives/holderFix.js"></script>
+    <script src="app/filters.js"></script>
+
+    <script src="js/classie.js"></script>
+    <script src="js/mlpushmenu.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

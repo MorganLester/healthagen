@@ -1,0 +1,112 @@
+<div class="aside aside-new" tabindex="-1" role="dialog">
+
+    <div class="aside-content">
+      <div class="aside-body">
+        
+
+        <!-- mp-menu -->
+        <nav id="mp-menu" class="mp-menu">
+          <div class="mp-level" style="-webkit-transform: translate3d(0, 0px, 0px) !important;">
+            <h2>Filter Patients</h2>
+            <button type="button" class="close-filter" ng-click="$hide()">&times;</button>
+            <ul>
+
+              <li>
+                <a class="arrow">Care Manager</a>
+                <div class="mp-level">
+                  <h2>Care Manager</h2>
+                  <button type="button" class="close-filter" ng-click="$hide()">&times;</button>
+                  <a class="mp-back">Back</a>
+                  <ul>
+                    <li>
+                      <a ng-click="addManager('Miriam')">Miriam Makeba</a>
+                    </li>
+                    <li>
+                      <a ng-click="addManager('Joyce')">Joyce Rosenovich</a>
+                    </li>
+                  </ul>
+                  <button type="button" class="btn btn-default btn-full" ng-click="$hide()">Done</button>
+                </div>
+              </li>
+
+              <li>
+                <a class="arrow">Physicians</a>
+                <div class="mp-level">
+                  <h2>Physicians</h2>
+                  <button type="button" class="close-filter" ng-click="$hide()">&times;</button>
+                  <a class="mp-back">Back</a>
+                    <ul>
+                      <li class="doctors" ng-repeat="patient in patients | unique: 'physician.last'"><a ng-click="addDoctor(patient.physician.last)">{{ patient.physician | doctorSurname }}</a></li>
+                    </ul>
+                    <button type="button" class="btn btn-default btn-full" ng-click="$hide()">Done</button>
+                </div>
+              </li>
+
+              <li>
+                <a class="arrow">Age</a>
+                <div class="mp-level">
+                  <h2>Age</h2>
+                  <button type="button" class="close-filter" ng-click="$hide()">&times;</button>
+                  <a class="mp-back">Back</a>
+                  <ul>
+                    <li>
+                      <a>20 - 40</a>
+                    </li>
+                    <li>
+                      <a>41 - 60</a>
+                    </li>
+                    <li>
+                      <a>61 - 80</a>
+                    </li>
+                    <li>
+                      <a>81+</a>
+                    </li>
+                  </ul>
+                  <button type="button" class="btn btn-default btn-full" ng-click="$hide()">Done</button>
+                </div>
+              </li>
+
+              <li>
+                <a class="arrow">Gender</a>
+                <div class="mp-level">
+                  <h2>Physicians</h2>
+                  <button type="button" class="close-filter" ng-click="$hide()">&times;</button>
+                  <a class="mp-back">Back</a>
+                    <ul>
+                      <li class="doctors">
+                        <a ng-click="addGender('Male')">Male</a>
+                      </li>
+                      <li class="doctors">
+                        <a ng-click="addGender('Female')">Female</a>
+                      </li>
+                    </ul>
+                    <button type="button" class="btn btn-default btn-full" ng-click="$hide()">Done</button>
+                </div>
+              </li>
+
+            </ul>
+
+          </div>
+        </nav>
+        <!-- /mp-menu -->
+
+
+
+        <!-- shameless hacks so I don't have to mess with the JS file -->
+        <a id="trigger"></a>
+        <div id="mp-empty"></div>
+
+        <script>
+
+            new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ), {
+          type : 'cover'
+        } );
+
+        </script>
+        <!-- end shameless hacks (here anyways) -->
+
+       
+      </div>
+    </div>
+
+</div>

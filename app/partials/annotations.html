@@ -1,0 +1,93 @@
+    <div class="annotations" ng-controller="annotationController">
+
+      <img src="bootflat/img/icon-close.png" class="close-annotations" width="24" height="24" ng-click="annotate()">
+
+      <div class="anno-overview">
+        <h2 ng-controller="titleController">{{ title }}</h2>
+        <ol>
+          <li>HotSpot Cards clearly shows what the Case Manager should work on, centered around the Patient. </li>
+          <li>Multiple Hotspots for a patient can be quickly seen without losing context.</li>
+          <li>Task Bar shows what is due sorted by “Today”</li>
+          <li>The User can choose to work on one of these hotspotted patients or move to another patient using the search bar or hamburger menu.</li>
+          <li>The reason for the hotspot is indicated on the card.  Multiple reasons are indicated by dots which can be cycled through.</li>
+          <li>Clicking on the hotspot card expands to show more detail about the patient as well as the system’s rationale for being marked as a hotspot.</li>
+        </ol>
+      </div>
+    
+      <div class="anno-profile">
+        <h2 ng-controller="titleController">Patient Profile</h2>
+        <ol>
+          <li>Patient Information, Tasks, Messages about the Patient, and Encounters are always available at the top of the page.</li>
+          <li>If the patient is a hotpot, the system's reasoning will be highlighted.</li>
+          <li>Medical Information about the patient will be represented here. If any information is a Hotspot then it will highlighted.</li>
+          <li>The patient’s information is divided into the tabs along the left side of the screen. Selecting a tab will show that content on the right side of the screen.</li>
+          <li>At a glance, the user can see which tabs have hotpot concerns.</li>
+          <li>The current tab is identified through a full color indicator that point over to the content on the left.</li>
+          <li>Hotspot items will be given additional context around why they are hot.  At a glance, the user’s eye is drawn to the most critical information on the screen.</li>
+          <li>The basic demographic information can be viewed at the top at any point, and will expand the top bar to show the detailed content.</li>
+        </ol>
+      </div>
+
+      <div class="anno-assessment">
+        <h2 ng-controller="titleController">Current Encounter</h2>
+        <ol>
+          <li>Assessments are now non-linear. Meaning you can easily jump between assessments and to other areas of the patient profile while in an Encounter.</li>
+          <li>Finding questions is much easier with type ahead search results.</li>
+          <li>Problems are totaled up and addressed once the encounter has finished.</li>
+          <li>The left side of the screen shows the current assessment with (1) a progress bar and (2) prompts for the next 5 questions to ask.</li>
+          <li>If the conversation switches off topic, the user can type the new topic in the search bar  to move to more relevant questions.</li>
+          <li>If the conversation moves to medication reconciliation, the user can quickly move to the medications tab of the patient profile without stopping the assessment.</li>
+          <li>The right side of the screen shows other assessments that are underway or hotspotted.</li>
+          <li>Questions answered in the main assessment can also be credited to the other assessments when relevant.</li>
+          <li>When a question has been answered, the set of “next questions” is updated to reflect the most relevant follow-up questions.</li>
+        </ol>
+      </div>
+
+      <div class="anno-all-patients">
+        <h2 ng-controller="titleController">{{ title }}</h2>
+        <ol>
+          <li>Hotspot Patients are clearly seen and sorted at the top of the screen.</li>
+          <li>List is pre-filtered by the current logged in User, and more filtering can be added simply typing a team members name.</li>
+          <li>The user can change the filter to show the caseload of other team members.</li>
+          <li>Relevant Patient Detail is shown on the card, but more detail can be found once the user clicks on the card.</li>
+          <li>The patient details shown on the card can be modified in settings.</li>
+          <li>Patients can be viewed in card view or list view.</li>
+        </ol>
+      </div>
+
+      <div class="anno-tasks">
+        <h2 ng-controller="titleController">{{ title }}</h2>
+        <ol>
+          <li>Tasks are sorted by today, Single and bulk actions are easily accessible.</li>
+          <li>List is pre-filtered by the current logged in User, and more filtering can be added in simply typing the team member’s name.</li>
+          <li>Task Statistics shows a roll up of common tasks and highlights patients with the most tasks associated with them.</li>
+          <li>Tasks are shown in the context of a playlist that they are part (e.g., 3rd step of the weight loss playlist).</li>
+          <li>Action can be taken directly via the Start button to complete the task.</li>
+          <li>A toggle switch allows the user to switch from organizing tasks by time to organizing them by playlist (for batch processing).</li>
+        </ol>
+      </div>
+
+      <div class="anno-playlists">
+        <h2 ng-controller="titleController">{{ title }}</h2>
+        <ol>
+          <li>Playlists are groups of tasks combined into specific flows.</li>
+          <li>Each playlist has a title and a goal.</li>
+          <li>The active playlists are shown on the left side of the screen. The user can identify new playlists via the search bar on the right.</li>
+          <li>Patients are assigned to specific playlists based on Assessments.</li>
+          <li>Playlists are Hotspots when there are tasks that are overdue or when a large number of patients are on the same task and be combined in a bulk action.</li>
+          <li>A toggle switch allows the user to switch from organizing tasks by playlist to organizing them by chronological due date.</li>
+        </ol>
+      </div>
+
+      <div class="anno-messages">
+        <h2 ng-controller="titleController">Messages</h2>
+        <ol>
+          <li>Messages are discussions around patients or between Staff members and facilitate open communication in an organization.</li>
+          <li>They are meant to be a replacement for both Email and Notes.</li>
+          <li>Messages are placed in context of the patient or staff member. When messaging about a specific patient, that patient’s basic information appears on the right side panel.</li>
+          <li>If Case Managers are entering Clinical Data then they can tag the message as such. Clinical data will be treated differently that basic team communications.</li>
+          <li>Messages are automatically associated with specific patients or team members and are easily accessible and sortable thorough these tags.</li>
+        </ol>
+      </div>
+
+    </div>

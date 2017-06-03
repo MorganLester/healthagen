@@ -1,0 +1,138 @@
+<div class="aside" tabindex="-1" role="dialog">
+
+    <div class="panel-content panel-rollup panel-all-patients clearfix">       
+
+        <header class="clearfix">
+
+            <img src="bootflat/img/icon-close.png" class="close-panel-bottom" width="24" height="24" ng-click="$hide()">
+
+            <h2>Patient Hotspot</h2>
+
+            <div class="clearfix">
+
+                <div class="pull-left col-md-8 col-sm-8 col-xs-8">
+
+                    <div class="dl-group dl-group-full dl-align-bottom clearfix">
+                        
+                        <dl class="col-1">
+                            <h1 ng-class="{ 'hotspot' : patient.hotspot === true, 'male': patient.gender === 'Male', 'female': patient.gender === 'Female' }">{{ patient.name | displaySurname | characters: 60 }}</h1>
+                        </dl>
+
+                        <dl class="col-2">
+                            <span class="phone">(212) 123-4567</span>
+                        </dl>
+
+                        <dl class="col-3">
+                            <dt>Age</dt>
+                            <dd>{{ patient.age }}</dd>
+                        </dl>
+
+                        <dl class="col-4">
+                            <dt>DOB</dt>
+                            <dd>05/21/{{ 2014 - patient.age }}</dd>
+                        </dl>
+
+                    </div>
+
+                </div>
+
+                <div class="pull-right col-md-4 col-sm-4 col-xs-4">
+                    <a href="#/meds-allergies/{{ patient.id }}" class="btn btn-primary">Patient Profile</a>
+                    <button type="button" class="btn btn-primary">Add to Watchlist</button>
+                </div>
+
+            </div>
+
+            <div class="panel-well">
+
+                <div class="dl-group dl-group-full">
+
+                    <dl class="col-1">
+                        <dt>Case Managers</dt>
+                        <dd>
+                            <div ng-repeat="manager in patient.managers">
+                                {{ $index + 1 }}. {{ manager }} <a>edit</a>
+                            </div>
+                        </dd>
+                    </dl>
+
+                    <dl class="col-2">
+                        <dt>Primary Diagnosis</dt>
+                        <dd>
+                            <div ng-repeat="diagnosis in patient.diagnoses">
+                                {{ diagnosis }}
+                            </div>
+                        </dd>
+                    </dl>
+                    
+                    <dl class="col-3">
+                        <dt>Insurer</dt>
+                        <dd>{{ patient.insurer }}</dd>
+                    </dl>
+                    
+                    <dl class="col-4">
+                        <dt>Primary Care Doctor</dd>
+                        <dd>Dr. {{ patient.physician | doctorName }}<br>(606) 123-4567</dd>
+                    </dl>
+                        
+                </div>
+            </div> 
+
+        </header>
+
+        <footer>
+
+            <h3>
+                <ng-pluralize count="patient.hotspots.length"
+                    when="{'0': 'No Patient Hotspots',
+                         '1': '1 Patient Hotspot',
+                         'other': '{} Patient Hotspots'}">
+                </ng-pluralize>
+            </h3>
+
+            <ul class="clearfix">
+
+                <li id="tile-rollup-{{ $index }}" class="tiles" ng-repeat="hot in patient.hotspots" ng-show="patient.hotspot" load-dispatcher>
+
+                    <a>
+
+                        <div class="fold-zone" ng-click="foldRollup($index)"></div>
+
+                        <div class="tile-inner eq-height">
+                            
+                            <img src="bootflat/img/hotspot-folded.png" class="folded">
+                            <img src="bootflat/img/base-layer.png" class="base">
+                            <img src="bootflat/img/hotspot-unfolded.png" class="unfolded">
+
+                            <div class="tile-content">
+                      
+                                <h2>{{ hot.title | characters: 70 }}</h2>
+
+                                <div class="well">
+                                    <p>
+                                        <strong>{{ hot.type }}</strong>
+                                        {{ patient.tasks.time }}
+                                    </p>
+                                </div>  
+
+                                <div>
+                                    <button type="button" class="btn btn-default btn-white arrow-right" data-template="app/partials/panels/snooze.html" bs-aside="aside" data-container=".page-wrapper">Snooze</button>
+                                    <a class="btn btn-default btn-white" ng-show="( hot.title ) != 'Encounter'">Create Task</a>
+                                    <a class="btn btn-default btn-white" ng-show="( hot.title ) == 'Encounter'">Start Encounter</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </footer>
+
+    </div>
+
+</div>

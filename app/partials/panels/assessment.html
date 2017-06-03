@@ -1,0 +1,29 @@
+
+<div class="aside panel-assessment panel-bottom" tabindex="-1" role="dialog">
+
+    <div class="panel-content clearfix" ng-controller="EncounterController">
+
+      <header>   
+
+        <h1>Current Encounter</h1>
+
+        <div id="clock-timer" class="clearfix">
+
+          <timer interval="1000">{{hhours}}:{{mminutes}}:{{sseconds}}</timer>
+
+          <a ng-click="stopResumeTimer('clock-timer')" class="stop-resume pull-right btn btn-default">Stop</a>
+
+        </div>
+
+        <div ng-switch on="closeType">
+          <a ng-switch-when="true" class="minimize caret-bottom" ng-click="minimize()"></a>
+          <img ng-switch-when="false" class="minimize" src="bootflat/img/icon-close.png" width="24" height="24" ng-click="$hide()">
+        </div>
+
+      </header>
+
+      <div ng-model="tabs.activeTab" bs-tabs="tabs"></div>
+
+    </div>
+ 
+</div>
